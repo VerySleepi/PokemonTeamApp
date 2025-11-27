@@ -28,12 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnTeam = new Button();
+            btnBattle = new Button();
+            SuspendLayout();
+            // 
+            // btnTeam
+            // 
+            btnTeam.Location = new Point(133, 257);
+            btnTeam.Name = "btnTeam";
+            btnTeam.Size = new Size(180, 40);
+            btnTeam.TabIndex = 0;
+            btnTeam.Text = "Team";
+            btnTeam.UseVisualStyleBackColor = true;
+            btnTeam.Click += btnTeam_Click;
+            // 
+            // btnBattle
+            // 
+            btnBattle.Location = new Point(458, 257);
+            btnBattle.Name = "btnBattle";
+            btnBattle.Size = new Size(180, 40);
+            btnBattle.TabIndex = 0;
+            btnBattle.Text = "Battle";
+            btnBattle.UseVisualStyleBackColor = true;
+            // 
+            // MainMenu
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(771, 497);
+            Controls.Add(btnBattle);
+            Controls.Add(btnTeam);
+            Name = "MainMenu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Main Menu";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnTeam;
+        private Button btnBattle;
     }
 }

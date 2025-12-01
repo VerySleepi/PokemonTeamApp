@@ -15,16 +15,20 @@ namespace PokemonTeamApp
     {
         // Data
         Team team = new Team();
+        List<Pokemon> pokemons = new List<Pokemon>();
+        Image pokeball, emptyPokeball;
 
         // 1. Need help figuring out how to load pokemon details up into the page everytime for each control in streamlined way.
         // 2. Need help figuring out how to change the images on this and main page based on whether or not there is a pokemon in the team in that slot.
         // 3. Overall just need help figuring out how to make the program flow
+        // 4. Help with Panels if possible
 
 
         // Constructor
         public TeamPage()
         {
             InitializeComponent();
+
         }
 
         // Event Handlers

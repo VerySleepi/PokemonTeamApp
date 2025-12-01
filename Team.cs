@@ -5,6 +5,8 @@ public class Team
     // Data
     private List<Pokemon> pokemonTeam = new List<Pokemon>();
 
+    // ERROR: System.IO.IOException: 'The process cannot access the file 'C:\Users\Student\Documents\Code\Programming\PokemonTeamApp\bin\Debug\net9.0-windows\Team' because it is being used by another process.'
+
     // Constructor
     public Team()
     {

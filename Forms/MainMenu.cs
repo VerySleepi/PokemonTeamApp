@@ -4,15 +4,20 @@ namespace PokemonTeamApp
     {
         // Data
         Team team = new Team();
-        List<Pokemon> pokemons;
+        List<Pokemon> pokemons = new List<Pokemon>();
         Image pokeball, emptyPokeball;
 
         // Constructor
         public MainMenu()
         {
             InitializeComponent();
+
+            pokemons = team.GetTeam();
         }
 
+
+
+        // Event Handler
         private void btnTeam_Click(object sender, EventArgs e)
         {
             Hide();
@@ -22,9 +27,6 @@ namespace PokemonTeamApp
 
             Show();
         }
-
-
-        // Event Handler
 
         // Member Functions
 

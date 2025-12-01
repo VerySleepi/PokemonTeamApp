@@ -16,6 +16,7 @@ namespace PokemonTeamApp
         // Data
         Team team = new Team();
         List<Pokemon> pokemons = new List<Pokemon>();
+        List<Panel> pokemonPanel = new List<Panel>();
         Image pokeball, emptyPokeball;
 
         // 1. Need help figuring out how to load pokemon details up into the page everytime for each control in streamlined way.

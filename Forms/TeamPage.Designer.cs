@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             pnlTeamSlot6 = new Panel();
-            lblLevel6 = new Label();
-            lblName6 = new Label();
-            pBPokeman6 = new PictureBox();
             prBhealth6 = new ProgressBar();
+            pBPokeman6 = new PictureBox();
+            lblName6 = new Label();
+            lblLevel6 = new Label();
             pnlTeamSlot5 = new Panel();
-            lblLevel5 = new Label();
-            lblName5 = new Label();
-            pBPokeman5 = new PictureBox();
             prBhealth5 = new ProgressBar();
+            pBPokeman5 = new PictureBox();
+            lblName5 = new Label();
+            lblLevel5 = new Label();
             pnlTeamSlot4 = new Panel();
-            lblLevel4 = new Label();
-            lblName4 = new Label();
-            pBPokeman4 = new PictureBox();
             prBhealth4 = new ProgressBar();
+            pBPokeman4 = new PictureBox();
+            lblName4 = new Label();
+            lblLevel4 = new Label();
             pnlTeamSlot3 = new Panel();
-            lblLevel3 = new Label();
-            lblName3 = new Label();
-            pBPokeman3 = new PictureBox();
             prBhealth3 = new ProgressBar();
+            pBPokeman3 = new PictureBox();
+            lblName3 = new Label();
+            lblLevel3 = new Label();
             pnlTeamSlot2 = new Panel();
-            lblName2 = new Label();
-            lblLevel2 = new Label();
-            pBPokeman2 = new PictureBox();
             prBhealth2 = new ProgressBar();
+            pBPokeman2 = new PictureBox();
+            lblLevel2 = new Label();
+            lblName2 = new Label();
             pnlTeamSlot1 = new Panel();
-            pBPokeman1 = new PictureBox();
-            lblName1 = new Label();
-            lblLevel1 = new Label();
             prBhealth1 = new ProgressBar();
+            lblLevel1 = new Label();
+            lblName1 = new Label();
+            pBPokeman1 = new PictureBox();
             tlpTeam = new TableLayoutPanel();
             pnlTeamSlot6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBPokeman6).BeginInit();
@@ -80,47 +80,49 @@
             pnlTeamSlot6.Controls.Add(pBPokeman6);
             pnlTeamSlot6.Controls.Add(lblName6);
             pnlTeamSlot6.Controls.Add(lblLevel6);
-            pnlTeamSlot6.Dock = DockStyle.Fill;
-            pnlTeamSlot6.Location = new Point(497, 210);
+            pnlTeamSlot6.Location = new Point(567, 280);
+            pnlTeamSlot6.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot6.Name = "pnlTeamSlot6";
-            pnlTeamSlot6.Size = new Size(241, 202);
+            pnlTeamSlot6.Size = new Size(275, 269);
             pnlTeamSlot6.TabIndex = 0;
             // 
-            // lblLevel6
+            // prBhealth6
             // 
-            lblLevel6.Location = new Point(53, 157);
-            lblLevel6.Name = "lblLevel6";
-            lblLevel6.Size = new Size(38, 20);
-            lblLevel6.TabIndex = 2;
-            lblLevel6.Text = "Lv.";
-            lblLevel6.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblName6
-            // 
-            lblName6.Location = new Point(103, 157);
-            lblName6.Name = "lblName6";
-            lblName6.Size = new Size(108, 20);
-            lblName6.TabIndex = 1;
-            lblName6.TextAlign = ContentAlignment.MiddleCenter;
+            prBhealth6.Location = new Point(35, 256);
+            prBhealth6.Margin = new Padding(3, 4, 3, 4);
+            prBhealth6.Maximum = 1000;
+            prBhealth6.Name = "prBhealth6";
+            prBhealth6.Size = new Size(230, 15);
+            prBhealth6.Step = 1;
+            prBhealth6.Style = ProgressBarStyle.Continuous;
+            prBhealth6.TabIndex = 3;
             // 
             // pBPokeman6
             // 
             pBPokeman6.Anchor = AnchorStyles.Top;
-            pBPokeman6.Location = new Point(45, 4);
+            pBPokeman6.Location = new Point(51, 5);
+            pBPokeman6.Margin = new Padding(3, 4, 3, 4);
             pBPokeman6.Name = "pBPokeman6";
-            pBPokeman6.Size = new Size(150, 150);
+            pBPokeman6.Size = new Size(171, 200);
             pBPokeman6.TabIndex = 0;
             pBPokeman6.TabStop = false;
             // 
-            // prBhealth6
+            // lblName6
             // 
-            prBhealth6.Location = new Point(31, 192);
-            prBhealth6.Maximum = 1000;
-            prBhealth6.Name = "prBhealth6";
-            prBhealth6.Size = new Size(201, 11);
-            prBhealth6.Step = 1;
-            prBhealth6.Style = ProgressBarStyle.Continuous;
-            prBhealth6.TabIndex = 3;
+            lblName6.Location = new Point(118, 209);
+            lblName6.Name = "lblName6";
+            lblName6.Size = new Size(123, 27);
+            lblName6.TabIndex = 1;
+            lblName6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLevel6
+            // 
+            lblLevel6.Location = new Point(61, 209);
+            lblLevel6.Name = "lblLevel6";
+            lblLevel6.Size = new Size(43, 27);
+            lblLevel6.TabIndex = 2;
+            lblLevel6.Text = "Lv.";
+            lblLevel6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlTeamSlot5
             // 
@@ -128,47 +130,49 @@
             pnlTeamSlot5.Controls.Add(pBPokeman5);
             pnlTeamSlot5.Controls.Add(lblName5);
             pnlTeamSlot5.Controls.Add(lblLevel5);
-            pnlTeamSlot5.Dock = DockStyle.Fill;
-            pnlTeamSlot5.Location = new Point(250, 210);
+            pnlTeamSlot5.Location = new Point(285, 280);
+            pnlTeamSlot5.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot5.Name = "pnlTeamSlot5";
-            pnlTeamSlot5.Size = new Size(241, 202);
+            pnlTeamSlot5.Size = new Size(275, 269);
             pnlTeamSlot5.TabIndex = 0;
             // 
-            // lblLevel5
+            // prBhealth5
             // 
-            lblLevel5.Location = new Point(48, 157);
-            lblLevel5.Name = "lblLevel5";
-            lblLevel5.Size = new Size(38, 20);
-            lblLevel5.TabIndex = 2;
-            lblLevel5.Text = "Lv.";
-            lblLevel5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblName5
-            // 
-            lblName5.Location = new Point(98, 157);
-            lblName5.Name = "lblName5";
-            lblName5.Size = new Size(108, 20);
-            lblName5.TabIndex = 1;
-            lblName5.TextAlign = ContentAlignment.MiddleCenter;
+            prBhealth5.Location = new Point(35, 256);
+            prBhealth5.Margin = new Padding(3, 4, 3, 4);
+            prBhealth5.Maximum = 1000;
+            prBhealth5.Name = "prBhealth5";
+            prBhealth5.Size = new Size(230, 15);
+            prBhealth5.Step = 1;
+            prBhealth5.Style = ProgressBarStyle.Continuous;
+            prBhealth5.TabIndex = 3;
             // 
             // pBPokeman5
             // 
             pBPokeman5.Anchor = AnchorStyles.Top;
-            pBPokeman5.Location = new Point(45, 4);
+            pBPokeman5.Location = new Point(51, 5);
+            pBPokeman5.Margin = new Padding(3, 4, 3, 4);
             pBPokeman5.Name = "pBPokeman5";
-            pBPokeman5.Size = new Size(150, 150);
+            pBPokeman5.Size = new Size(171, 200);
             pBPokeman5.TabIndex = 0;
             pBPokeman5.TabStop = false;
             // 
-            // prBhealth5
+            // lblName5
             // 
-            prBhealth5.Location = new Point(31, 192);
-            prBhealth5.Maximum = 1000;
-            prBhealth5.Name = "prBhealth5";
-            prBhealth5.Size = new Size(201, 11);
-            prBhealth5.Step = 1;
-            prBhealth5.Style = ProgressBarStyle.Continuous;
-            prBhealth5.TabIndex = 3;
+            lblName5.Location = new Point(112, 209);
+            lblName5.Name = "lblName5";
+            lblName5.Size = new Size(123, 27);
+            lblName5.TabIndex = 1;
+            lblName5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLevel5
+            // 
+            lblLevel5.Location = new Point(55, 209);
+            lblLevel5.Name = "lblLevel5";
+            lblLevel5.Size = new Size(43, 27);
+            lblLevel5.TabIndex = 2;
+            lblLevel5.Text = "Lv.";
+            lblLevel5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlTeamSlot4
             // 
@@ -177,46 +181,49 @@
             pnlTeamSlot4.Controls.Add(lblName4);
             pnlTeamSlot4.Controls.Add(lblLevel4);
             pnlTeamSlot4.Dock = DockStyle.Fill;
-            pnlTeamSlot4.Location = new Point(3, 210);
+            pnlTeamSlot4.Location = new Point(3, 280);
+            pnlTeamSlot4.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot4.Name = "pnlTeamSlot4";
-            pnlTeamSlot4.Size = new Size(241, 202);
+            pnlTeamSlot4.Size = new Size(276, 269);
             pnlTeamSlot4.TabIndex = 0;
             // 
-            // lblLevel4
+            // prBhealth4
             // 
-            lblLevel4.Location = new Point(52, 157);
-            lblLevel4.Name = "lblLevel4";
-            lblLevel4.Size = new Size(38, 20);
-            lblLevel4.TabIndex = 2;
-            lblLevel4.Text = "Lv.";
-            lblLevel4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblName4
-            // 
-            lblName4.Location = new Point(102, 157);
-            lblName4.Name = "lblName4";
-            lblName4.Size = new Size(108, 20);
-            lblName4.TabIndex = 1;
-            lblName4.TextAlign = ContentAlignment.MiddleCenter;
+            prBhealth4.Location = new Point(35, 256);
+            prBhealth4.Margin = new Padding(3, 4, 3, 4);
+            prBhealth4.Maximum = 1000;
+            prBhealth4.Name = "prBhealth4";
+            prBhealth4.Size = new Size(230, 15);
+            prBhealth4.Step = 1;
+            prBhealth4.Style = ProgressBarStyle.Continuous;
+            prBhealth4.TabIndex = 3;
             // 
             // pBPokeman4
             // 
             pBPokeman4.Anchor = AnchorStyles.Top;
-            pBPokeman4.Location = new Point(45, 4);
+            pBPokeman4.Location = new Point(52, 5);
+            pBPokeman4.Margin = new Padding(3, 4, 3, 4);
             pBPokeman4.Name = "pBPokeman4";
-            pBPokeman4.Size = new Size(150, 150);
+            pBPokeman4.Size = new Size(171, 200);
             pBPokeman4.TabIndex = 0;
             pBPokeman4.TabStop = false;
             // 
-            // prBhealth4
+            // lblName4
             // 
-            prBhealth4.Location = new Point(31, 192);
-            prBhealth4.Maximum = 1000;
-            prBhealth4.Name = "prBhealth4";
-            prBhealth4.Size = new Size(201, 11);
-            prBhealth4.Step = 1;
-            prBhealth4.Style = ProgressBarStyle.Continuous;
-            prBhealth4.TabIndex = 3;
+            lblName4.Location = new Point(117, 209);
+            lblName4.Name = "lblName4";
+            lblName4.Size = new Size(123, 27);
+            lblName4.TabIndex = 1;
+            lblName4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLevel4
+            // 
+            lblLevel4.Location = new Point(59, 209);
+            lblLevel4.Name = "lblLevel4";
+            lblLevel4.Size = new Size(43, 27);
+            lblLevel4.TabIndex = 2;
+            lblLevel4.Text = "Lv.";
+            lblLevel4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlTeamSlot3
             // 
@@ -224,47 +231,49 @@
             pnlTeamSlot3.Controls.Add(pBPokeman3);
             pnlTeamSlot3.Controls.Add(lblName3);
             pnlTeamSlot3.Controls.Add(lblLevel3);
-            pnlTeamSlot3.Dock = DockStyle.Fill;
-            pnlTeamSlot3.Location = new Point(497, 3);
+            pnlTeamSlot3.Location = new Point(567, 4);
+            pnlTeamSlot3.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot3.Name = "pnlTeamSlot3";
-            pnlTeamSlot3.Size = new Size(241, 201);
+            pnlTeamSlot3.Size = new Size(275, 268);
             pnlTeamSlot3.TabIndex = 0;
             // 
-            // lblLevel3
+            // prBhealth3
             // 
-            lblLevel3.Location = new Point(51, 157);
-            lblLevel3.Name = "lblLevel3";
-            lblLevel3.Size = new Size(38, 20);
-            lblLevel3.TabIndex = 2;
-            lblLevel3.Text = "Lv.";
-            lblLevel3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblName3
-            // 
-            lblName3.Location = new Point(101, 157);
-            lblName3.Name = "lblName3";
-            lblName3.Size = new Size(108, 20);
-            lblName3.TabIndex = 1;
-            lblName3.TextAlign = ContentAlignment.MiddleCenter;
+            prBhealth3.Location = new Point(34, 256);
+            prBhealth3.Margin = new Padding(3, 4, 3, 4);
+            prBhealth3.Maximum = 1000;
+            prBhealth3.Name = "prBhealth3";
+            prBhealth3.Size = new Size(230, 15);
+            prBhealth3.Step = 1;
+            prBhealth3.Style = ProgressBarStyle.Continuous;
+            prBhealth3.TabIndex = 3;
             // 
             // pBPokeman3
             // 
             pBPokeman3.Anchor = AnchorStyles.Top;
-            pBPokeman3.Location = new Point(45, 4);
+            pBPokeman3.Location = new Point(51, 5);
+            pBPokeman3.Margin = new Padding(3, 4, 3, 4);
             pBPokeman3.Name = "pBPokeman3";
-            pBPokeman3.Size = new Size(150, 150);
+            pBPokeman3.Size = new Size(171, 200);
             pBPokeman3.TabIndex = 0;
             pBPokeman3.TabStop = false;
             // 
-            // prBhealth3
+            // lblName3
             // 
-            prBhealth3.Location = new Point(30, 192);
-            prBhealth3.Maximum = 1000;
-            prBhealth3.Name = "prBhealth3";
-            prBhealth3.Size = new Size(201, 11);
-            prBhealth3.Step = 1;
-            prBhealth3.Style = ProgressBarStyle.Continuous;
-            prBhealth3.TabIndex = 3;
+            lblName3.Location = new Point(115, 209);
+            lblName3.Name = "lblName3";
+            lblName3.Size = new Size(123, 27);
+            lblName3.TabIndex = 1;
+            lblName3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLevel3
+            // 
+            lblLevel3.Location = new Point(58, 209);
+            lblLevel3.Name = "lblLevel3";
+            lblLevel3.Size = new Size(43, 27);
+            lblLevel3.TabIndex = 2;
+            lblLevel3.Text = "Lv.";
+            lblLevel3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlTeamSlot2
             // 
@@ -272,47 +281,49 @@
             pnlTeamSlot2.Controls.Add(pBPokeman2);
             pnlTeamSlot2.Controls.Add(lblLevel2);
             pnlTeamSlot2.Controls.Add(lblName2);
-            pnlTeamSlot2.Dock = DockStyle.Fill;
-            pnlTeamSlot2.Location = new Point(250, 3);
+            pnlTeamSlot2.Location = new Point(285, 4);
+            pnlTeamSlot2.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot2.Name = "pnlTeamSlot2";
-            pnlTeamSlot2.Size = new Size(241, 201);
+            pnlTeamSlot2.Size = new Size(275, 268);
             pnlTeamSlot2.TabIndex = 0;
             // 
-            // lblName2
+            // prBhealth2
             // 
-            lblName2.Location = new Point(96, 157);
-            lblName2.Name = "lblName2";
-            lblName2.Size = new Size(108, 20);
-            lblName2.TabIndex = 1;
-            lblName2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblLevel2
-            // 
-            lblLevel2.Location = new Point(46, 157);
-            lblLevel2.Name = "lblLevel2";
-            lblLevel2.Size = new Size(38, 20);
-            lblLevel2.TabIndex = 2;
-            lblLevel2.Text = "Lv.";
-            lblLevel2.TextAlign = ContentAlignment.MiddleLeft;
+            prBhealth2.Location = new Point(33, 256);
+            prBhealth2.Margin = new Padding(3, 4, 3, 4);
+            prBhealth2.Maximum = 1000;
+            prBhealth2.Name = "prBhealth2";
+            prBhealth2.Size = new Size(230, 15);
+            prBhealth2.Step = 1;
+            prBhealth2.Style = ProgressBarStyle.Continuous;
+            prBhealth2.TabIndex = 3;
             // 
             // pBPokeman2
             // 
             pBPokeman2.Anchor = AnchorStyles.Top;
-            pBPokeman2.Location = new Point(45, 4);
+            pBPokeman2.Location = new Point(51, 5);
+            pBPokeman2.Margin = new Padding(3, 4, 3, 4);
             pBPokeman2.Name = "pBPokeman2";
-            pBPokeman2.Size = new Size(150, 150);
+            pBPokeman2.Size = new Size(171, 200);
             pBPokeman2.TabIndex = 0;
             pBPokeman2.TabStop = false;
             // 
-            // prBhealth2
+            // lblLevel2
             // 
-            prBhealth2.Location = new Point(29, 192);
-            prBhealth2.Maximum = 1000;
-            prBhealth2.Name = "prBhealth2";
-            prBhealth2.Size = new Size(201, 11);
-            prBhealth2.Step = 1;
-            prBhealth2.Style = ProgressBarStyle.Continuous;
-            prBhealth2.TabIndex = 3;
+            lblLevel2.Location = new Point(53, 209);
+            lblLevel2.Name = "lblLevel2";
+            lblLevel2.Size = new Size(43, 27);
+            lblLevel2.TabIndex = 2;
+            lblLevel2.Text = "Lv.";
+            lblLevel2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblName2
+            // 
+            lblName2.Location = new Point(110, 209);
+            lblName2.Name = "lblName2";
+            lblName2.Size = new Size(123, 27);
+            lblName2.TabIndex = 1;
+            lblName2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pnlTeamSlot1
             // 
@@ -320,48 +331,50 @@
             pnlTeamSlot1.Controls.Add(lblLevel1);
             pnlTeamSlot1.Controls.Add(lblName1);
             pnlTeamSlot1.Controls.Add(pBPokeman1);
-            pnlTeamSlot1.Dock = DockStyle.Fill;
-            pnlTeamSlot1.Location = new Point(3, 3);
+            pnlTeamSlot1.Location = new Point(3, 4);
+            pnlTeamSlot1.Margin = new Padding(3, 4, 3, 4);
             pnlTeamSlot1.Name = "pnlTeamSlot1";
-            pnlTeamSlot1.Size = new Size(241, 201);
+            pnlTeamSlot1.Size = new Size(275, 268);
             pnlTeamSlot1.TabIndex = 0;
             pnlTeamSlot1.DoubleClick += pnlTeamSlot_DoubleClick;
             // 
-            // pBPokeman1
+            // prBhealth1
             // 
-            pBPokeman1.Anchor = AnchorStyles.Top;
-            pBPokeman1.Location = new Point(45, 4);
-            pBPokeman1.Name = "pBPokeman1";
-            pBPokeman1.Size = new Size(150, 150);
-            pBPokeman1.TabIndex = 0;
-            pBPokeman1.TabStop = false;
-            // 
-            // lblName1
-            // 
-            lblName1.Location = new Point(100, 157);
-            lblName1.Name = "lblName1";
-            lblName1.Size = new Size(108, 20);
-            lblName1.TabIndex = 1;
-            lblName1.TextAlign = ContentAlignment.MiddleCenter;
+            prBhealth1.Location = new Point(33, 256);
+            prBhealth1.Margin = new Padding(3, 4, 3, 4);
+            prBhealth1.Maximum = 1000;
+            prBhealth1.Name = "prBhealth1";
+            prBhealth1.Size = new Size(230, 15);
+            prBhealth1.Step = 1;
+            prBhealth1.Style = ProgressBarStyle.Continuous;
+            prBhealth1.TabIndex = 3;
             // 
             // lblLevel1
             // 
-            lblLevel1.Location = new Point(50, 157);
+            lblLevel1.Location = new Point(57, 209);
             lblLevel1.Name = "lblLevel1";
-            lblLevel1.Size = new Size(38, 20);
+            lblLevel1.Size = new Size(43, 27);
             lblLevel1.TabIndex = 2;
             lblLevel1.Text = "Lv.";
             lblLevel1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // prBhealth1
+            // lblName1
             // 
-            prBhealth1.Location = new Point(29, 192);
-            prBhealth1.Maximum = 1000;
-            prBhealth1.Name = "prBhealth1";
-            prBhealth1.Size = new Size(201, 11);
-            prBhealth1.Step = 1;
-            prBhealth1.Style = ProgressBarStyle.Continuous;
-            prBhealth1.TabIndex = 3;
+            lblName1.Location = new Point(114, 209);
+            lblName1.Name = "lblName1";
+            lblName1.Size = new Size(123, 27);
+            lblName1.TabIndex = 1;
+            lblName1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pBPokeman1
+            // 
+            pBPokeman1.Anchor = AnchorStyles.Top;
+            pBPokeman1.Location = new Point(51, 5);
+            pBPokeman1.Margin = new Padding(3, 4, 3, 4);
+            pBPokeman1.Name = "pBPokeman1";
+            pBPokeman1.Size = new Size(171, 200);
+            pBPokeman1.TabIndex = 0;
+            pBPokeman1.TabStop = false;
             // 
             // tlpTeam
             // 
@@ -375,20 +388,22 @@
             tlpTeam.Controls.Add(pnlTeamSlot4, 0, 1);
             tlpTeam.Controls.Add(pnlTeamSlot5, 1, 1);
             tlpTeam.Controls.Add(pnlTeamSlot6, 2, 1);
-            tlpTeam.Location = new Point(26, 12);
+            tlpTeam.Location = new Point(30, 16);
+            tlpTeam.Margin = new Padding(3, 4, 3, 4);
             tlpTeam.Name = "tlpTeam";
             tlpTeam.RowCount = 2;
             tlpTeam.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpTeam.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpTeam.Size = new Size(741, 415);
+            tlpTeam.Size = new Size(847, 553);
             tlpTeam.TabIndex = 0;
             // 
             // TeamPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(tlpTeam);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "TeamPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TeamPage";

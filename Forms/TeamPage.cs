@@ -15,21 +15,34 @@ namespace PokemonTeamApp
     {
         // Data
         Team team = new Team();
-        List<Pokemon> pokemons = new List<Pokemon>();
-        List<Panel> pokemonPanel = new List<Panel>();
+        List<Pokepanel> pokemonPanels = new List<Pokepanel>();
         Image pokeball, emptyPokeball;
-
-        // 1. Need help figuring out how to load pokemon details up into the page everytime for each control in streamlined way.
-        // 2. Need help figuring out how to change the images on this and main page based on whether or not there is a pokemon in the team in that slot.
-        // 3. Overall just need help figuring out how to make the program flow
-        // 4. Help with Panels if possible
-
 
         // Constructor
         public TeamPage()
         {
             InitializeComponent();
+            Load();
+        }
 
+        private void Load()
+        {
+            // TODO@: delete this temporary hard coded data
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
+
+            // TODO: Loop over pokemonPanels setting the values
+            lblName1.Text = team.GetPokemon(0).Name;
+            pokemonPanels[0].pbPokeball.Image = pokeball;
+
+
+            // TODO: Figure out getting bitmap images from resources file
+            //pokeball = Image.FromFile("Properties/Resources.resx");
+            //emptyPokeball = Image.FromFile("EmptyPokeball.png");
         }
 
         // Event Handlers
@@ -43,12 +56,15 @@ namespace PokemonTeamApp
             Show();
         }
 
-        private void TeamPage_Load(object sender, EventArgs e)
+        // Member functions
+        private void CreatePanels()
         {
-            List<Pokemon> pokemons = team.GetTeam();
-            
+            // TODO: Do the following for each panel, so that when you update the value of a pokemonPanel, the panel gets updated. (SEE LOAD TODO)  
+            Pokepanel panel = new Pokepanel();
+            panel.lblName = lblName1;
+
+            pokemonPanels.Add(panel);
         }
 
-        // Member Functions
     }
 }

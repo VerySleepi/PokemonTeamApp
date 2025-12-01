@@ -4,6 +4,7 @@ namespace PokemonTeamApp
     {
         // Data
         Team team = new Team();
+        List<Pokepanel> pokepanels = new List<Pokepanel>();
         List<Pokemon> pokemons = new List<Pokemon>();
         Image pokeball, emptyPokeball;
 
@@ -14,8 +15,6 @@ namespace PokemonTeamApp
 
             pokemons = team.GetTeam();
         }
-
-
 
         // Event Handler
         private void btnTeam_Click(object sender, EventArgs e)

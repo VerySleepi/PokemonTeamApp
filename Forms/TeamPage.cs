@@ -1,4 +1,5 @@
 ﻿using PokemonTeamApp.Forms;
+using PokemonTeamApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,22 +28,15 @@ namespace PokemonTeamApp
 
         private void Load()
         {
-            // TODO@: delete this temporary hard coded data
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
-            team.AddPokemon(new Pokemon("Mim", 12, 34, 345, 45, 23, 54));
 
             // TODO: Loop over pokemonPanels setting the values
             lblName1.Text = team.GetPokemon(0).Name;
-            pokemonPanels[0].pbPokeball.Image = pokeball;
+            //pokemonPanels[0].pbPokeball.Image = pokeball;
 
 
             // TODO: Figure out getting bitmap images from resources file
-            //pokeball = Image.FromFile("Properties/Resources.resx");
-            //emptyPokeball = Image.FromFile("EmptyPokeball.png");
+            pokeball = Resources.Pokeball;
+            emptyPokeball = Resources.EmptyPokeball;
         }
 
         // Event Handlers

@@ -83,4 +83,9 @@ public class Team
 
         }
     }
+
+    public Pokemon GetPokemon(int choiceIndex)
+    {
+        return pokemonTeam[choiceIndex] as Pokemon;
+    }
 }

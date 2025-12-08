@@ -1,6 +1,5 @@
 ﻿public class Pokemon
 {
-    // TODO: ADD TEAM CLASS USING THIS CLASS
 
     // Data
     // TODO: C# Properties research w/ validation

@@ -61,23 +61,22 @@ namespace PokemonTeamApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap EmptyPokeball {
+        internal static byte[] EmptyPokeball {
             get {
                 object obj = ResourceManager.GetObject("EmptyPokeball", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
-        
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap Pokeball {
+        internal static byte[] Pokeball {
             get {
                 object obj = ResourceManager.GetObject("Pokeball", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
     }

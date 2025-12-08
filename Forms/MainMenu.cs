@@ -4,16 +4,11 @@ namespace PokemonTeamApp
     {
         // Data
         Team team = new Team();
-        List<Pokepanel> pokepanels = new List<Pokepanel>();
-        List<Pokemon> pokemons = new List<Pokemon>();
-        Image pokeball, emptyPokeball;
 
         // Constructor
         public MainMenu()
         {
             InitializeComponent();
-
-            pokemons = team.GetTeam();
         }
 
         // Event Handler

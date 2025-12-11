@@ -28,23 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flbPokemonTeam = new FlowLayoutPanel();
+            flpPokemonTeam = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // flbPokemonTeam
+            // flpPokemonTeam
             // 
-            flbPokemonTeam.Location = new Point(21, 121);
-            flbPokemonTeam.Name = "flbPokemonTeam";
-            flbPokemonTeam.Size = new Size(759, 191);
-            flbPokemonTeam.TabIndex = 0;
+            flpPokemonTeam.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flpPokemonTeam.Dock = DockStyle.Top;
+            flpPokemonTeam.Location = new Point(0, 0);
+            flpPokemonTeam.Name = "flpPokemonTeam";
+            flpPokemonTeam.Size = new Size(587, 515);
+            flpPokemonTeam.TabIndex = 0;
             // 
             // TeamPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(flbPokemonTeam);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(587, 599);
+            Controls.Add(flpPokemonTeam);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimumSize = new Size(0, 629);
             Name = "TeamPage";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TeamPage";
             ResumeLayout(false);
@@ -52,6 +58,6 @@
 
         #endregion
 
-        private FlowLayoutPanel flbPokemonTeam;
+        private FlowLayoutPanel flpPokemonTeam;
     }
 }

@@ -3,39 +3,14 @@
 public class Team
 {
     // Data
-    private List<Pokemon> pokemonTeam = new List<Pokemon>();
+    private List<Pokemon> pokemonTeam = new List<Pokemon>(6);
 
     // TODO: Create GetPokemon(int index) member function
 
     // Constructor
     public Team()
     {
-        if (File.Exists("Team"))
-        {
-            List<string> team = File.ReadAllLines("Team").ToList();
-            foreach (string pokemon in team)
-            {
-                List<string> values = pokemon.Split(',').ToList();
-                List<int> intValues = new List<int>();
-                for (int i = 1; i < values.Count; i++)
-                {
-                    try
-                    {
-                        intValues.Add(Convert.ToInt32(values[i]));
-                    }
-                    catch
-                    {
-                        break;
-                    }
-                }
-                Pokemon p = new Pokemon(values[0], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5]);
-                pokemonTeam.Add(p);
-            }
-        }
-        else
-        {
-            File.Create("Team");
-        }
+        GetTeam();
     }
 
     // Methods
@@ -57,7 +32,52 @@ public class Team
 
     public List<Pokemon> GetTeam()
     {
+        if (pokemonTeam.Count == 0)
+        {
+            if (File.Exists("Team"))
+            {
+                int startIndex = 0;
+                List<string> team = File.ReadAllLines("Team").ToList();
+                foreach (string pokemon in team)
+                {
+                    List<string> values = pokemon.Split(',').ToList();
+                    List<int> intValues = new List<int>();
+                    int numberOfValues = values.Count;
+                    if (numberOfValues == 8)
+                    {
+                        startIndex = 2;
+                        LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
+                    }
+                    else if (numberOfValues == 9)
+                    {
+                        startIndex = 3;
+                        LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                File.Create("Team");
+            }
+        }
         return pokemonTeam;
+
+    }
+
+    public Pokemon GetPokemon(int index)
+    {
+        if (pokemonTeam.Count < index + 1)
+        {
+            return null;
+        }
+        else
+        {
+            return pokemonTeam[index];
+        }
     }
 
     public void AddPokemon(Pokemon newPokemon)
@@ -80,12 +100,39 @@ public class Team
         }
         catch
         {
-
+            return;
         }
     }
 
-    public Pokemon GetPokemon(int choiceIndex)
+    private void LoadPokemonToTeam(int startIndex, int numberOfValues, List<string> values, List<int> intValues)
     {
-        return pokemonTeam[choiceIndex] as Pokemon;
+        for (int i = startIndex; i < numberOfValues; i++)
+        {
+            try
+            {
+                intValues.Add(Convert.ToInt32(values[i]));
+            }
+            catch
+            {
+                break;
+            }
+        }
+
+        if (numberOfValues == 8)
+        {
+            Pokemon p = new Pokemon(values[0], values[1], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5]);
+            pokemonTeam.Add(p);
+        }
+        else if (numberOfValues == 9)
+        {
+            Pokemon p = new Pokemon(values[0], values[1], values[2], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5]);
+            pokemonTeam.Add(p);
+        }
+        else
+        {
+            return;
+        }
+
+
     }
 }

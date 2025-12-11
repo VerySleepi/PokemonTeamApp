@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonTeamApp.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,12 +27,17 @@ namespace PokemonTeamApp
         {
             InitializeComponent();
             pbPokeBall.Image = img;
+            psbHealth.Hide();
+            lblName.Hide();
+            lblN.Hide();
         }
 
         private void PokePanel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"You clicked on picture box {this.lblName.ToString()}");
-            
+            ParentForm.Hide();
+            PokemonPage pokemonPage = new PokemonPage();
+            pokemonPage.ShowDialog();
+            ParentForm.Show();
         }
     }
 }

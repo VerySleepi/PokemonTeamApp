@@ -28,15 +28,13 @@ namespace PokemonTeamApp
 
         private void Load()
         {
-            pokeball = new Bitmap("C:\\Users\\c5016395\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\Pokeball.png");
-            emptyPokeball = new Bitmap("C:\\Users\\c5016395\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\EmptyPokeball.png");
+            pokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\Pokeball.png");
+            emptyPokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\EmptyPokeball.png");
             CreatePanels();
             foreach (PokePanel panel in pokemonPanels)
             {
-                flbPokemonTeam.Controls.Add(panel);
+                flpPokemonTeam.Controls.Add(panel);
             }
-            
-            //pokemonPanels[0].pbPokeball.Image = pokeball;
 
 
             //// TODO: Figure out getting bitmap images from resources file
@@ -45,14 +43,21 @@ namespace PokemonTeamApp
         }
 
         // Event Handlers
-        private void pnlTeamSlot_DoubleClick(object sender, EventArgs e)
+        private void PokePanel_Click(object sender, EventArgs e)
         {
-            Hide();
-
-            PokemonPage pokemonPage = new PokemonPage();
-            pokemonPage.ShowDialog();
-
-            Show();
+            PokePanel panel = (PokePanel)sender;
+            int currentPanel = flpPokemonTeam.Controls.IndexOf(panel);
+            if (currentPanel != -1 && team.GetPokemon(currentPanel) != null)
+            {
+                this.Hide();
+                PokemonPage pokemonPage = new PokemonPage();
+                pokemonPage.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                return;
+            }
         }
 
         // Member functions
@@ -62,9 +67,10 @@ namespace PokemonTeamApp
             // TODO: Loop over pokemonPanels setting the values
             for (int i = 0; i < 6; i++)
             {
-                if (team.GetTeam()[i] != null)
+                if (team.GetPokemon(i) != null)
                 {
-                    PokePanel poke = new PokePanel(pokeball, team.GetTeam()[i]);
+                    PokePanel poke = new PokePanel(pokeball, team.GetPokemon(i));
+                    poke.Click += PokePanel_Click;
                     pokemonPanels.Add(poke);
                 }
                 else

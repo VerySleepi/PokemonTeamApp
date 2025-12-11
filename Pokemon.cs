@@ -4,6 +4,8 @@
     // Data
     // TODO: C# Properties research w/ validation
     private string name = "";
+    private string type1 = "";
+    private string type2 = "";
     private int level = 1;
     private int hp = 1;
     private int attack = 1;
@@ -17,6 +19,18 @@
         get { return name; }
         set { name = value; }
     }
+    public string Type1
+    {
+        get { return type1; }
+        set { type1 = value; }
+    }
+
+    public string Type2
+    {
+        get { return type2; }
+        set { type2 = value; }
+    }
+
     public int Level
     {
         get { return level; }
@@ -54,9 +68,23 @@
     }
 
     // Member Constructors
-    public Pokemon(string species, int hp, int atk, int def, int spak, int spdf, int spd)
+    public Pokemon(string species, string type1, string type2, int hp, int atk, int def, int spak, int spdf, int spd)
     {
         Name = species;
+        Type1 = type1;
+        Type2 = type2;
+        HP = hp;
+        Attack = atk;
+        Defense = def;
+        SpAtk = spak;
+        SpDef = spdf;
+        Spd = spd;
+    }
+
+    public Pokemon(string species, string type1, int hp, int atk, int def, int spak, int spdf, int spd)
+    {
+        Name = species;
+        Type1 = type1;
         HP = hp;
         Attack = atk;
         Defense = def;
@@ -81,6 +109,8 @@
     {
         return $"{Name}, Lvl:{Level}\n{HP}/{HP}";
     }
+
+    
 
     public override string ToString()
     {

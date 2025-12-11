@@ -42,11 +42,10 @@
             pbPokeBall.Enabled = false;
             pbPokeBall.Location = new Point(1, 0);
             pbPokeBall.Name = "pbPokeBall";
-            pbPokeBall.Size = new Size(187, 178);
+            pbPokeBall.Size = new Size(187, 185);
             pbPokeBall.SizeMode = PictureBoxSizeMode.Zoom;
             pbPokeBall.TabIndex = 0;
             pbPokeBall.TabStop = false;
-            pbPokeBall.Click += PokePanel_Click;
             // 
             // lblName
             // 
@@ -57,7 +56,6 @@
             lblName.Size = new Size(140, 24);
             lblName.TabIndex = 1;
             lblName.TextAlign = ContentAlignment.MiddleLeft;
-            lblName.Click += PokePanel_Click;
             // 
             // lblN
             // 
@@ -69,22 +67,20 @@
             lblN.TabIndex = 2;
             lblN.Text = "Name:";
             lblN.TextAlign = ContentAlignment.MiddleCenter;
-            lblN.Click += PokePanel_Click;
             // 
             // pnlName
             // 
             pnlName.BackColor = SystemColors.ButtonFace;
             pnlName.Controls.Add(lblN);
             pnlName.Controls.Add(lblName);
-            pnlName.Location = new Point(0, 178);
+            pnlName.Location = new Point(1, 191);
             pnlName.Name = "pnlName";
             pnlName.Size = new Size(187, 31);
             pnlName.TabIndex = 3;
-            pnlName.Click += PokePanel_Click;
             // 
             // psbHealth
             // 
-            psbHealth.Location = new Point(8, 226);
+            psbHealth.Location = new Point(9, 226);
             psbHealth.Name = "psbHealth";
             psbHealth.Size = new Size(170, 13);
             psbHealth.TabIndex = 4;
@@ -98,7 +94,6 @@
             Controls.Add(psbHealth);
             Name = "PokePanel";
             Size = new Size(189, 242);
-            Click += PokePanel_Click;
             ((System.ComponentModel.ISupportInitialize)pbPokeBall).EndInit();
             pnlName.ResumeLayout(false);
             ResumeLayout(false);

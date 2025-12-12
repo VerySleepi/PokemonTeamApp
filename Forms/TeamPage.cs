@@ -50,7 +50,7 @@ namespace PokemonTeamApp
             if (currentPanel != -1 && team.GetPokemon(currentPanel) != null)
             {
                 this.Hide();
-                PokemonPage pokemonPage = new PokemonPage();
+                PokemonPage pokemonPage = new PokemonPage(team.GetPokemon(currentPanel));
                 pokemonPage.ShowDialog();
                 this.Show();
             }
@@ -58,6 +58,11 @@ namespace PokemonTeamApp
             {
                 return;
             }
+        }
+        private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            team.SaveTeam();
+            Close();
         }
 
         // Member functions

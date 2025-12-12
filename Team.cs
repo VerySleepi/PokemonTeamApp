@@ -3,7 +3,7 @@
 public class Team
 {
     // Data
-    private List<Pokemon> pokemonTeam = new List<Pokemon>(6);
+    private List<Pokemon> pokemonTeam = new List<Pokemon>();
 
     // TODO: Create GetPokemon(int index) member function
 
@@ -16,13 +16,21 @@ public class Team
     // Methods
     public void SaveTeam()
     {
-        List<string> pokeman = new List<string>();
-        foreach (Pokemon p in pokemonTeam)
+        try
         {
-            pokeman.Add(p.FormattedPokemon());
-        }
+            List<string> pokeman = new List<string>();
+            foreach (Pokemon p in pokemonTeam)
+            {
+                pokeman.Add(p.FormattedPokemon());
+            }
 
-        File.WriteAllLines("Team", pokeman);
+            File.WriteAllLines("Team", pokeman); // System.OverflowException Error here, look to fix.
+        }
+        catch
+        {
+            MessageBox.Show("An error occurred while saving the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
     }
 
     //public ReadOnlyCollection<Pokemon> GetTeam()
@@ -43,12 +51,12 @@ public class Team
                     List<string> values = pokemon.Split(',').ToList();
                     List<int> intValues = new List<int>();
                     int numberOfValues = values.Count;
-                    if (numberOfValues == 8)
+                    if (numberOfValues == 9)
                     {
                         startIndex = 2;
                         LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
                     }
-                    else if (numberOfValues == 9)
+                    else if (numberOfValues == 10)
                     {
                         startIndex = 3;
                         LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
@@ -118,21 +126,19 @@ public class Team
             }
         }
 
-        if (numberOfValues == 8)
+        if (numberOfValues == 9)
         {
-            Pokemon p = new Pokemon(values[0], values[1], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5]);
+            Pokemon p = new Pokemon(values[0], values[1], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5], intValues[6]);
             pokemonTeam.Add(p);
         }
-        else if (numberOfValues == 9)
+        else if (numberOfValues == 10)
         {
-            Pokemon p = new Pokemon(values[0], values[1], values[2], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5]);
+            Pokemon p = new Pokemon(values[0], values[1], values[2], intValues[0], intValues[1], intValues[2], intValues[3], intValues[4], intValues[5], intValues[6]);
             pokemonTeam.Add(p);
         }
         else
         {
             return;
         }
-
-
     }
 }

@@ -68,11 +68,12 @@
     }
 
     // Member Constructors
-    public Pokemon(string species, string type1, string type2, int hp, int atk, int def, int spak, int spdf, int spd)
+    public Pokemon(string species, string type1, string type2, int lvl, int hp, int atk, int def, int spak, int spdf, int spd)
     {
         Name = species;
         Type1 = type1;
         Type2 = type2;
+        Level = lvl;
         HP = hp;
         Attack = atk;
         Defense = def;
@@ -81,10 +82,11 @@
         Spd = spd;
     }
 
-    public Pokemon(string species, string type1, int hp, int atk, int def, int spak, int spdf, int spd)
+    public Pokemon(string species, string type1, int lvl, int hp, int atk, int def, int spak, int spdf, int spd)
     {
         Name = species;
         Type1 = type1;
+        Level = lvl;
         HP = hp;
         Attack = atk;
         Defense = def;
@@ -102,15 +104,20 @@
     // TODO: Add functions setting individual values
     public string FormattedPokemon()
     {
-        return $"{Name},{Level},{HP},{Attack},{Defense},{SpAtk},{SpDef},{Spd}";
+        if (Type2 != "")
+        {
+            return $"{Name},{Type1},{Type2},{Level},{HP},{Attack},{Defense},{SpAtk},{SpDef},{Spd}";
+        }
+        else
+        {
+            return $"{Name},{Type1},{Level},{HP},{Attack},{Defense},{SpAtk},{SpDef},{Spd}";
+        }
     }
 
     public string StatOverview()
     {
-        return $"{Name}, Lvl:{Level}\n{HP}/{HP}";
+        return $"{Name}, Lvl:{Level},\n{HP}/{HP}";
     }
-
-    
 
     public override string ToString()
     {

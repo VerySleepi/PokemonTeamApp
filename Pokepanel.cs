@@ -31,13 +31,5 @@ namespace PokemonTeamApp
             lblName.Hide();
             lblN.Hide();
         }
-
-        private void PokePanel_Click(object sender, EventArgs e)
-        {
-            ParentForm.Hide();
-            PokemonPage pokemonPage = new PokemonPage();
-            pokemonPage.ShowDialog();
-            ParentForm.Show();
-        }
     }
 }

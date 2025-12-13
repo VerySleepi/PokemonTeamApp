@@ -48,6 +48,11 @@
             lblLvlValue = new Label();
             cbPkmnName = new ComboBox();
             btnSave = new Button();
+            btnAdd = new Button();
+            lblType1 = new Label();
+            lblType2 = new Label();
+            lblPrimaryType = new Label();
+            lblSecondaryType = new Label();
             gBStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudSpd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudSpDef).BeginInit();
@@ -86,56 +91,61 @@
             // 
             nudSpd.Font = new Font("Segoe UI", 11F);
             nudSpd.Location = new Point(156, 350);
-            nudSpd.Maximum = new decimal(new int[] { 145, 0, 0, 0 });
+            nudSpd.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudSpd.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpd.Name = "nudSpd";
             nudSpd.Size = new Size(58, 27);
-            nudSpd.TabIndex = 1;
+            nudSpd.TabIndex = 7;
             nudSpd.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudSpd.ValueChanged += Stat_ValueChanged;
             // 
             // nudSpDef
             // 
             nudSpDef.Font = new Font("Segoe UI", 11F);
             nudSpDef.Location = new Point(156, 296);
-            nudSpDef.Maximum = new decimal(new int[] { 250, 0, 0, 0 });
+            nudSpDef.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudSpDef.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpDef.Name = "nudSpDef";
             nudSpDef.Size = new Size(58, 27);
-            nudSpDef.TabIndex = 1;
+            nudSpDef.TabIndex = 6;
             nudSpDef.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudSpDef.ValueChanged += Stat_ValueChanged;
             // 
             // nudSpAtk
             // 
             nudSpAtk.Font = new Font("Segoe UI", 11F);
             nudSpAtk.Location = new Point(156, 242);
-            nudSpAtk.Maximum = new decimal(new int[] { 145, 0, 0, 0 });
+            nudSpAtk.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudSpAtk.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpAtk.Name = "nudSpAtk";
             nudSpAtk.Size = new Size(58, 27);
-            nudSpAtk.TabIndex = 1;
+            nudSpAtk.TabIndex = 5;
             nudSpAtk.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudSpAtk.ValueChanged += Stat_ValueChanged;
             // 
             // nudDef
             // 
             nudDef.Font = new Font("Segoe UI", 11F);
             nudDef.Location = new Point(156, 188);
-            nudDef.Maximum = new decimal(new int[] { 250, 0, 0, 0 });
+            nudDef.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudDef.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudDef.Name = "nudDef";
             nudDef.Size = new Size(58, 27);
-            nudDef.TabIndex = 1;
+            nudDef.TabIndex = 4;
             nudDef.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudDef.ValueChanged += Stat_ValueChanged;
             // 
             // nudAtk
             // 
             nudAtk.Font = new Font("Segoe UI", 11F);
             nudAtk.Location = new Point(156, 134);
-            nudAtk.Maximum = new decimal(new int[] { 170, 0, 0, 0 });
+            nudAtk.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudAtk.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudAtk.Name = "nudAtk";
             nudAtk.Size = new Size(58, 27);
-            nudAtk.TabIndex = 1;
+            nudAtk.TabIndex = 3;
             nudAtk.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudAtk.ValueChanged += Stat_ValueChanged;
             // 
             // nudLvl
             // 
@@ -152,12 +162,13 @@
             // 
             nudHP.Font = new Font("Segoe UI", 11F);
             nudHP.Location = new Point(156, 80);
-            nudHP.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            nudHP.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             nudHP.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudHP.Name = "nudHP";
             nudHP.Size = new Size(58, 27);
-            nudHP.TabIndex = 1;
+            nudHP.TabIndex = 2;
             nudHP.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudHP.ValueChanged += Stat_ValueChanged;
             // 
             // lblSpd
             // 
@@ -295,20 +306,80 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // btnAdd
+            // 
+            btnAdd.Enabled = false;
+            btnAdd.Location = new Point(597, 34);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(149, 30);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Visible = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // lblType1
+            // 
+            lblType1.Font = new Font("Yu Gothic UI Semibold", 12F);
+            lblType1.Location = new Point(12, 120);
+            lblType1.Name = "lblType1";
+            lblType1.RightToLeft = RightToLeft.No;
+            lblType1.Size = new Size(68, 23);
+            lblType1.TabIndex = 0;
+            lblType1.Text = "Type 1:";
+            lblType1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblType2
+            // 
+            lblType2.Font = new Font("Yu Gothic UI Semibold", 12F);
+            lblType2.Location = new Point(12, 200);
+            lblType2.Name = "lblType2";
+            lblType2.RightToLeft = RightToLeft.No;
+            lblType2.Size = new Size(68, 21);
+            lblType2.TabIndex = 0;
+            lblType2.Text = "Type 2:";
+            lblType2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblPrimaryType
+            // 
+            lblPrimaryType.Font = new Font("Yu Gothic UI Semibold", 12F);
+            lblPrimaryType.Location = new Point(69, 120);
+            lblPrimaryType.Name = "lblPrimaryType";
+            lblPrimaryType.RightToLeft = RightToLeft.No;
+            lblPrimaryType.Size = new Size(68, 23);
+            lblPrimaryType.TabIndex = 0;
+            lblPrimaryType.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblSecondaryType
+            // 
+            lblSecondaryType.Font = new Font("Yu Gothic UI Semibold", 12F);
+            lblSecondaryType.Location = new Point(69, 200);
+            lblSecondaryType.Name = "lblSecondaryType";
+            lblSecondaryType.RightToLeft = RightToLeft.No;
+            lblSecondaryType.Size = new Size(68, 21);
+            lblSecondaryType.TabIndex = 0;
+            lblSecondaryType.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // PokemonPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAdd);
             Controls.Add(btnSave);
             Controls.Add(cbPkmnName);
             Controls.Add(lblName);
             Controls.Add(lblLvlValue);
             Controls.Add(lblLvl);
             Controls.Add(gBStats);
+            Controls.Add(lblSecondaryType);
+            Controls.Add(lblType2);
+            Controls.Add(lblPrimaryType);
+            Controls.Add(lblType1);
             Name = "PokemonPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PokemonPage";
+            FormClosing += PokemonPage_FormClosing;
             gBStats.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudSpd).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudSpDef).EndInit();
@@ -342,5 +413,10 @@
         private Label lblLvlValue;
         private ComboBox cbPkmnName;
         private Button btnSave;
+        private Button btnAdd;
+        private Label lblType1;
+        private Label lblType2;
+        private Label lblPrimaryType;
+        private Label lblSecondaryType;
     }
 }

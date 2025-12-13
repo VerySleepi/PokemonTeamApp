@@ -59,23 +59,31 @@ namespace PokemonTeamApp
                 return;
             }
         }
+
+        private void btnRemovePokemon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RemoveFromTeam removeFromTeam = new RemoveFromTeam();
+            removeFromTeam.ShowDialog();
+            this.Show();
+
+
+        }
+
         private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             team.SaveTeam();
-            Close();
         }
 
         // Member functions
         private void CreatePanels()
         {
-            // TODO: Do the following for each panel, so that when you update the value of a pokemonPanel, the panel gets updated. (SEE LOAD TODO)  
-            // TODO: Loop over pokemonPanels setting the values
             for (int i = 0; i < 6; i++)
             {
                 if (team.GetPokemon(i) != null)
                 {
                     PokePanel poke = new PokePanel(pokeball, team.GetPokemon(i));
-                    poke.Click += PokePanel_Click;
+                    poke.DoubleClick += PokePanel_Click;
                     pokemonPanels.Add(poke);
                 }
                 else

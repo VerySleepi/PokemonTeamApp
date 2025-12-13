@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             flpPokemonTeam = new FlowLayoutPanel();
+            btnAddTeam = new Button();
+            btnRemoveTeam = new Button();
             SuspendLayout();
             // 
             // flpPokemonTeam
@@ -40,17 +42,37 @@
             flpPokemonTeam.Size = new Size(587, 515);
             flpPokemonTeam.TabIndex = 0;
             // 
+            // btnAddTeam
+            // 
+            btnAddTeam.Location = new Point(45, 546);
+            btnAddTeam.Name = "btnAddTeam";
+            btnAddTeam.Size = new Size(142, 31);
+            btnAddTeam.TabIndex = 1;
+            btnAddTeam.Text = "Add Pokemon";
+            btnAddTeam.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveTeam
+            // 
+            btnRemoveTeam.Location = new Point(224, 546);
+            btnRemoveTeam.Name = "btnRemoveTeam";
+            btnRemoveTeam.Size = new Size(142, 31);
+            btnRemoveTeam.TabIndex = 1;
+            btnRemoveTeam.Text = "Remove Pokemon";
+            btnRemoveTeam.UseVisualStyleBackColor = true;
+            btnRemoveTeam.Click += btnRemovePokemon_Click;
+            // 
             // TeamPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(587, 599);
+            Controls.Add(btnRemoveTeam);
+            Controls.Add(btnAddTeam);
             Controls.Add(flpPokemonTeam);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MinimumSize = new Size(0, 629);
             Name = "TeamPage";
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TeamPage";
             FormClosing += TeamPage_FormClosing;
@@ -60,5 +82,7 @@
         #endregion
 
         private FlowLayoutPanel flpPokemonTeam;
+        private Button btnAddTeam;
+        private Button btnRemoveTeam;
     }
 }

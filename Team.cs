@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 public class Team
 {
@@ -24,7 +25,7 @@ public class Team
                 pokeman.Add(p.FormattedPokemon());
             }
 
-            File.WriteAllLines("Team", pokeman); // System.OverflowException Error here, look to fix.
+            File.WriteAllLines("Team", pokeman); 
         }
         catch
         {
@@ -78,7 +79,7 @@ public class Team
 
     public Pokemon GetPokemon(int index)
     {
-        if (pokemonTeam.Count < index + 1)
+        if (pokemonTeam.Count < index + 1 || index == -1)
         {
             return null;
         }
@@ -96,15 +97,19 @@ public class Team
         }
         else
         {
+            MessageBox.Show("Team is full! Remove a Pokemon before adding a new one.", "Team Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
     }
 
     public void RemovePokemon(int choiceIndex)
     {
+
         try
         {
             pokemonTeam.RemoveAt(choiceIndex);
+            SaveTeam();
+            MessageBox.Show("Pokemon removed from team.", "Pokemon Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch
         {

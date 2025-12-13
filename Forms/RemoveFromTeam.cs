@@ -39,11 +39,15 @@ namespace PokemonTeamApp.Forms
             }
             team.RemovePokemon(lbTeamList.SelectedIndex);
             this.Close();
+            TeamPage teamPage = new TeamPage();
+            teamPage.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            TeamPage teamPage = new TeamPage();
+            teamPage.Show();
         }
     }
 }

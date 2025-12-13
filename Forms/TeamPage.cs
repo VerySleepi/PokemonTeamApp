@@ -62,12 +62,14 @@ namespace PokemonTeamApp
 
         private void btnRemovePokemon_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (team.GetTeam().Count == 0)
+            {
+                MessageBox.Show("Your team is empty! There are no Pokemon to remove.", "No Pokemon to Remove", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            this.Close(); // For some reason removing a pokemon doesn't update the panels unless the form is closed and reopened
             RemoveFromTeam removeFromTeam = new RemoveFromTeam();
             removeFromTeam.ShowDialog();
-            this.Show();
-
-
         }
 
         private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)

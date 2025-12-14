@@ -84,7 +84,7 @@ public class Team
 
     public Pokemon GetPokemon(int index)
     {
-        if (index > pokemonTeam.Count - 1|| index == -1)
+        if (index > pokemonTeam.Count - 1 || index == -1)
         {
             return null;
         }

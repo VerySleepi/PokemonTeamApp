@@ -25,7 +25,7 @@ public class Team
                 pokeman.Add(p.FormattedPokemon());
             }
 
-            File.WriteAllLines("Team", pokeman); 
+            File.WriteAllLines("Team", pokeman);
         }
         catch
         {
@@ -84,7 +84,7 @@ public class Team
 
     public Pokemon GetPokemon(int index)
     {
-        if (pokemonTeam.Count < index + 1 || index == -1)
+        if (index > pokemonTeam.Count - 1|| index == -1)
         {
             return null;
         }

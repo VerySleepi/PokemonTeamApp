@@ -17,14 +17,8 @@ namespace PokemonTeamApp
 
         private void TeamPage_Load(object sender, EventArgs e)
         {
-            flpPokemonTeam.Controls.Clear();
             pokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\Pokeball.png");
             emptyPokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\EmptyPokeball.png");
-            CreatePanels();
-            foreach (PokePanel panel in pokemonPanels)
-            {
-                flpPokemonTeam.Controls.Add(panel);
-            }
         }
 
         // Event Handlers
@@ -52,10 +46,9 @@ namespace PokemonTeamApp
                 MessageBox.Show("Your team is empty! There are no Pokemon to remove.", "No Pokemon to Remove", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            this.Hide(); 
             RemoveFromTeam removeFromTeam = new RemoveFromTeam(team);
             removeFromTeam.ShowDialog();
-            this.Refresh();
+            this.Activate();
             this.Show();
         }
 
@@ -88,9 +81,19 @@ namespace PokemonTeamApp
             this.Hide();
             PokemonPage pokemonPage = new PokemonPage(team);
             pokemonPage.ShowDialog();
-            this.Refresh();
+            this.Activate();
+            this.Show();
         }
 
-
+        private void TeamPage_Activated(object sender, EventArgs e)
+        {
+            flpPokemonTeam.Controls.Clear();
+            pokemonPanels.Clear();
+            CreatePanels();
+            foreach (PokePanel panel in pokemonPanels)
+            {
+                flpPokemonTeam.Controls.Add(panel);
+            }
+        }
     }
 }

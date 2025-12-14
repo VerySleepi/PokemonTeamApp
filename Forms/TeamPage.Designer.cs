@@ -76,6 +76,7 @@
             Name = "TeamPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TeamPage";
+            Activated += TeamPage_Activated;
             FormClosing += TeamPage_FormClosing;
             Load += TeamPage_Load;
             ResumeLayout(false);

@@ -50,6 +50,7 @@
             btnAddTeam.TabIndex = 1;
             btnAddTeam.Text = "Add Pokemon";
             btnAddTeam.UseVisualStyleBackColor = true;
+            btnAddTeam.Click += btnAddTeam_Click;
             // 
             // btnRemoveTeam
             // 

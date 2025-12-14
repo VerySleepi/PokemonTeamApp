@@ -39,27 +39,28 @@ namespace PokemonTeamApp
 
         public List<string> SearchPokedex(string name)
         {
+            bool found = false;
             List<string> foundPokemon = new List<string>();
             string type1 = "";
             string type2 = "";
 
-            foreach (string[] pokemon in pokedex)
+            while (found == false)
             {
-                if (pokemon[0] == name)
+                foreach (string[] pokemon in pokedex)
                 {
-                    name = pokemon[0];
-                    type1 = pokemon[1];
-                    foundPokemon.Add(name);
-                    foundPokemon.Add(type1);
-                    if (pokemon.Length > 2)
+                    if (pokemon[0] == name)
                     {
-                        type2 = pokemon[2];
-                        foundPokemon.Add(type2);
-                    }   
-                }
-                else
-                {
-                    MessageBox.Show("Pokemon not found in Pokedex.");
+                        name = pokemon[0];
+                        type1 = pokemon[1];
+                        foundPokemon.Add(name);
+                        foundPokemon.Add(type1);
+                        if (pokemon.Length > 2)
+                        {
+                            type2 = pokemon[2];
+                            foundPokemon.Add(type2);
+                        }
+                        found = true;
+                    }
                 }
             }
             return foundPokemon;

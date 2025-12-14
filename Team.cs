@@ -94,6 +94,7 @@ public class Team
         if (pokemonTeam.Count < 6)
         {
             pokemonTeam.Add(newPokemon);
+            SaveTeam();
         }
         else
         {

@@ -86,5 +86,12 @@ namespace PokemonTeamApp
             }
         }
 
+        private void btnAddTeam_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PokemonPage pokemonPage = new PokemonPage();
+            pokemonPage.ShowDialog();
+            this.Show();
+        }
     }
 }

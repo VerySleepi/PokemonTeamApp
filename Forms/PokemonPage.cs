@@ -22,8 +22,11 @@ namespace PokemonTeamApp.Forms
         public PokemonPage()
         {
             InitializeComponent();
-            cbPkmnName.MaxDropDownItems = 151;
-            cbPkmnName.Items.AddRange(pokedex.GetAllPokemonNames());
+            //cbPkmnName.MaxDropDownItems = 151;
+            foreach (string name in pokedex.GetAllPokemonNames())
+            {
+                cbPkmnName.Items.Add(name);
+            }
             cbPkmnName.Visible = true;
             btnAdd.Visible = true;
             btnAdd.Enabled = true;
@@ -33,6 +36,11 @@ namespace PokemonTeamApp.Forms
         {
             InitializeComponent();
             this.pokemon = pokemon;
+            if (pokemon.Type2 != "")
+            {
+                lblType2.Visible = true;
+                lblSecondaryType.Visible = true;
+            }
             LoadPokemonData();
         }
 
@@ -107,8 +115,8 @@ namespace PokemonTeamApp.Forms
                 pokemon.Type2 = "";
             }
 
-            SavePokemonData();
             team.AddPokemon(pokemon);
+            SavePokemonData();
             this.Close();
         }
         private void PokemonPage_FormClosing(object sender, FormClosingEventArgs e)
@@ -132,6 +140,31 @@ namespace PokemonTeamApp.Forms
             savedChanges = false;
         }
 
+        private void cbPkmnName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> pokedexEntry = pokedex.SearchPokedex(cbPkmnName.SelectedItem.ToString());
+            if (pokedexEntry.Count == 0)
+            {
+                MessageBox.Show("Pokémon not found in the Pokédex.");
+                cbPkmnName.SelectedIndex = -1;
+                return;
+            }
+            lblName.Text = pokedexEntry[0];
+            lblPrimaryType.Text = pokedexEntry[1];
+            if (pokedexEntry.Count > 2)
+            {
+                lblType2.Visible = true;
+                lblSecondaryType.Visible = true;
+                lblSecondaryType.Text = pokedexEntry[2];
+            }
+            else
+            {
+                lblType2.Visible = false;
+                lblSecondaryType.Visible = false;
+            }
+            lblLvlValue.Text = nudLvl.Value.ToString();
+            savedChanges = false;
+        }
         // Member Functions
         public void LoadPokemonData()
         {
@@ -170,7 +203,6 @@ namespace PokemonTeamApp.Forms
 
             savedChanges = true;
         }
-
 
     }
 }

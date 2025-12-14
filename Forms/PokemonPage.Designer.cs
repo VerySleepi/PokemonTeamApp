@@ -295,6 +295,7 @@
             cbPkmnName.Size = new Size(253, 27);
             cbPkmnName.TabIndex = 2;
             cbPkmnName.Visible = false;
+            cbPkmnName.SelectedIndexChanged += cbPkmnName_SelectedIndexChanged;
             // 
             // btnSave
             // 
@@ -339,6 +340,7 @@
             lblType2.TabIndex = 0;
             lblType2.Text = "Type 2:";
             lblType2.TextAlign = ContentAlignment.MiddleLeft;
+            lblType2.Visible = false;
             // 
             // lblPrimaryType
             // 

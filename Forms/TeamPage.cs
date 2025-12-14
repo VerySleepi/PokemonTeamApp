@@ -13,11 +13,11 @@ namespace PokemonTeamApp
         public TeamPage()
         {
             InitializeComponent();
-            Load();
         }
 
-        private void Load()
+        private void TeamPage_Load(object sender, EventArgs e)
         {
+            flpPokemonTeam.Controls.Clear();
             pokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\Pokeball.png");
             emptyPokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\EmptyPokeball.png");
             CreatePanels();
@@ -25,11 +25,6 @@ namespace PokemonTeamApp
             {
                 flpPokemonTeam.Controls.Add(panel);
             }
-
-
-            //// TODO: Figure out getting bitmap images from resources file
-            //pokeball = Resources.Pokeball;
-            //emptyPokeball = Resources.EmptyPokeball;
         }
 
         // Event Handlers
@@ -40,7 +35,7 @@ namespace PokemonTeamApp
             if (currentPanel != -1 && team.GetPokemon(currentPanel) != null)
             {
                 this.Hide();
-                PokemonPage pokemonPage = new PokemonPage(team.GetPokemon(currentPanel));
+                PokemonPage pokemonPage = new PokemonPage(team.GetPokemon(currentPanel), team);
                 pokemonPage.ShowDialog();
                 this.Show();
             }
@@ -57,9 +52,11 @@ namespace PokemonTeamApp
                 MessageBox.Show("Your team is empty! There are no Pokemon to remove.", "No Pokemon to Remove", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            this.Close(); // For some reason removing a pokemon doesn't update the panels unless the form is closed and reopened
-            RemoveFromTeam removeFromTeam = new RemoveFromTeam();
+            this.Hide(); 
+            RemoveFromTeam removeFromTeam = new RemoveFromTeam(team);
             removeFromTeam.ShowDialog();
+            this.Refresh();
+            this.Show();
         }
 
         private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)
@@ -89,9 +86,11 @@ namespace PokemonTeamApp
         private void btnAddTeam_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PokemonPage pokemonPage = new PokemonPage();
+            PokemonPage pokemonPage = new PokemonPage(team);
             pokemonPage.ShowDialog();
-            this.Show();
+            this.Refresh();
         }
+
+
     }
 }

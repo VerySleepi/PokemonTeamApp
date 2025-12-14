@@ -43,38 +43,43 @@ public class Team
     {
         if (pokemonTeam.Count == 0)
         {
-            if (File.Exists("Team"))
-            {
-                int startIndex = 0;
-                List<string> team = File.ReadAllLines("Team").ToList();
-                foreach (string pokemon in team)
-                {
-                    List<string> values = pokemon.Split(',').ToList();
-                    List<int> intValues = new List<int>();
-                    int numberOfValues = values.Count;
-                    if (numberOfValues == 9)
-                    {
-                        startIndex = 2;
-                        LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
-                    }
-                    else if (numberOfValues == 10)
-                    {
-                        startIndex = 3;
-                        LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                File.Create("Team");
-            }
+            LoadTeam();
         }
         return pokemonTeam;
+    }
 
+    public List<Pokemon> LoadTeam()
+    {
+        if (File.Exists("Team"))
+        {
+            int startIndex = 0;
+            List<string> team = File.ReadAllLines("Team").ToList();
+            foreach (string pokemon in team)
+            {
+                List<string> values = pokemon.Split(',').ToList();
+                List<int> intValues = new List<int>();
+                int numberOfValues = values.Count;
+                if (numberOfValues == 9)
+                {
+                    startIndex = 2;
+                    LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
+                }
+                else if (numberOfValues == 10)
+                {
+                    startIndex = 3;
+                    LoadPokemonToTeam(startIndex, numberOfValues, values, intValues);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        else
+        {
+            File.Create("Team");
+        }
+        return pokemonTeam;
     }
 
     public Pokemon GetPokemon(int index)
@@ -93,8 +98,14 @@ public class Team
     {
         if (pokemonTeam.Count < 6)
         {
+            if (newPokemon == null)
+            {
+                MessageBox.Show("No Pokemon selected to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             pokemonTeam.Add(newPokemon);
             SaveTeam();
+            MessageBox.Show("Pokemon added to team.", "Pokemon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else
         {

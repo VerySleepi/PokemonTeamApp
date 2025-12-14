@@ -15,11 +15,11 @@ namespace PokemonTeamApp.Forms
         // Data
         Pokemon pokemon = new Pokemon();
         Pokedex pokedex = new Pokedex();
-        Team team = new Team();
+        Team team;
         private bool savedChanges = true;
 
         // Constructor
-        public PokemonPage()
+        public PokemonPage(Team team)
         {
             InitializeComponent();
             //cbPkmnName.MaxDropDownItems = 151;
@@ -30,9 +30,10 @@ namespace PokemonTeamApp.Forms
             cbPkmnName.Visible = true;
             btnAdd.Visible = true;
             btnAdd.Enabled = true;
+            this.team = team;
         }
 
-        public PokemonPage(Pokemon pokemon)
+        public PokemonPage(Pokemon pokemon, Team team)
         {
             InitializeComponent();
             this.pokemon = pokemon;
@@ -42,11 +43,13 @@ namespace PokemonTeamApp.Forms
                 lblSecondaryType.Visible = true;
             }
             LoadPokemonData();
+            this.team = team;
         }
 
         // Event Handlers
         private void NudLvl_ValueChanged(object sender, EventArgs e)
         {
+            lblLvlValue.Text = nudLvl.Value.ToString();
             Random rnd = new Random();
             int adjustedLevels = Convert.ToInt32(nudLvl.Value) - Convert.ToInt32(lblLvlValue.Text);
             if (adjustedLevels < 0)
@@ -76,7 +79,7 @@ namespace PokemonTeamApp.Forms
                     }
                 }
             }
-            lblLvlValue.Text = nudLvl.Value.ToString();
+            
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -92,6 +95,7 @@ namespace PokemonTeamApp.Forms
             }
 
             SavePokemonData();
+            team.SaveTeam();
             this.Close();
         }
 
@@ -115,10 +119,11 @@ namespace PokemonTeamApp.Forms
                 pokemon.Type2 = "";
             }
 
-            team.AddPokemon(pokemon);
             SavePokemonData();
+            team.AddPokemon(pokemon);
             this.Close();
         }
+
         private void PokemonPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             string message = "You have unsaved changes. Are you sure you want to exit?";
@@ -131,7 +136,6 @@ namespace PokemonTeamApp.Forms
                 {
                     e.Cancel = true;
                 }
-
             }
         }
 
@@ -165,6 +169,7 @@ namespace PokemonTeamApp.Forms
             lblLvlValue.Text = nudLvl.Value.ToString();
             savedChanges = false;
         }
+
         // Member Functions
         public void LoadPokemonData()
         {

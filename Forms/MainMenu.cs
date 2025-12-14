@@ -3,7 +3,6 @@ namespace PokemonTeamApp
     public partial class MainMenu : Form
     {
         // Data
-        Team team = new Team();
 
         // Constructor
         public MainMenu()

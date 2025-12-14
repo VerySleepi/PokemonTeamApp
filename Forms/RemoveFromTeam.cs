@@ -12,11 +12,12 @@ namespace PokemonTeamApp.Forms
 {
     public partial class RemoveFromTeam : Form
     {
-        Team team = new Team();
-        public RemoveFromTeam()
+        Team team;
+        public RemoveFromTeam(Team team)
         {
             InitializeComponent();
-            foreach(Pokemon p in team.GetTeam())
+            this.team = team;
+            foreach (Pokemon p in team.GetTeam())
             {
                 lbTeamList.Items.Add(p.Name);
             }
@@ -38,16 +39,11 @@ namespace PokemonTeamApp.Forms
                 return;
             }
             team.RemovePokemon(lbTeamList.SelectedIndex);
-            this.Close();
-            TeamPage teamPage = new TeamPage();
-            teamPage.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            TeamPage teamPage = new TeamPage();
-            teamPage.Show();
         }
     }
 }

@@ -77,6 +77,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TeamPage";
             FormClosing += TeamPage_FormClosing;
+            Load += TeamPage_Load;
             ResumeLayout(false);
         }
 

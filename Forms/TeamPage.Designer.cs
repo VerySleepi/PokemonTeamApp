@@ -71,7 +71,7 @@
             btnMainMenu.TabIndex = 2;
             btnMainMenu.Text = "Main Menu";
             btnMainMenu.UseVisualStyleBackColor = true;
-            btnMainMenu.Click += btnRemovePokemon_Click;
+            btnMainMenu.Click += btnMainMenu_Click;
             // 
             // TeamPage
             // 
@@ -90,7 +90,6 @@
             Text = "TeamPage";
             Activated += TeamPage_Activated;
             FormClosing += TeamPage_FormClosing;
-            Load += TeamPage_Load;
             ResumeLayout(false);
         }
 

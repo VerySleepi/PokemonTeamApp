@@ -47,10 +47,11 @@ namespace PokemonTeamApp.Forms
         }
 
         // Event Handlers
+        // Raising the value changed event to adjust stats based on level changes
         private void NudLvl_ValueChanged(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            // Preventing lblLvlValue from being empty 
+            // Preventing lblLvlValue from being empty, which happens when loading a new pokemon for the first time
             if (lblLvlValue.Text == "")
             {
                 lblLvlValue.Text = nudLvl.Value.ToString();
@@ -124,7 +125,7 @@ namespace PokemonTeamApp.Forms
             }
 
             SavePokemonData();
-            team.SaveTeam();
+            team.SaveTeam("Team");
             this.Close();
         }
 
@@ -150,6 +151,8 @@ namespace PokemonTeamApp.Forms
 
             SavePokemonData();
             team.AddPokemon(pokemon);
+            MessageBox.Show("Pokemon added to team.", "Pokemon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            team.SaveTeam("Team");
             this.Close();
         }
 
@@ -222,6 +225,8 @@ namespace PokemonTeamApp.Forms
                 lblType2.Visible = false;
                 lblSecondaryType.Visible = false;
             }
+
+            savedChanges = true;
         }
 
         public void SavePokemonData()

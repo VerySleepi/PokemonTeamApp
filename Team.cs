@@ -10,11 +10,12 @@ public class Team
     // Constructor
     public Team()
     {
+        TestingTeamFunctions();
         GetTeam();
     }
 
     // Methods
-    public void SaveTeam()
+    public void SaveTeam(string fileName)
     {
         try
         {
@@ -24,19 +25,14 @@ public class Team
                 pokeman.Add(p.FormattedPokemon());
             }
 
-            File.WriteAllLines("Team", pokeman);
+            File.WriteAllLines(fileName, pokeman);
         }
-        catch
+        catch (Exception e)
         {
-            MessageBox.Show("An error occurred while saving the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Debug.WriteLine(e);
             return;
         }
     }
-
-    //public ReadOnlyCollection<Pokemon> GetTeam()
-    //{
-    //    return pokemonTeam.AsReadOnly();
-    //}
 
     public List<Pokemon> GetTeam()
     {
@@ -95,22 +91,9 @@ public class Team
 
     public void AddPokemon(Pokemon newPokemon)
     {
-        if (pokemonTeam.Count < 6)
-        {
-            if (newPokemon == null)
-            {
-                MessageBox.Show("No Pokemon selected to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            pokemonTeam.Add(newPokemon);
-            SaveTeam();
-            MessageBox.Show("Pokemon added to team.", "Pokemon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        else
-        {
-            MessageBox.Show("Team is full! Remove a Pokemon before adding a new one.", "Team Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
+        Debug.Assert(newPokemon != null, "No Pokemon selected to add.");
+        pokemonTeam.Add(newPokemon);
+
     }
 
     public void RemovePokemon(int choiceIndex)
@@ -119,11 +102,10 @@ public class Team
         try
         {
             pokemonTeam.RemoveAt(choiceIndex);
-            SaveTeam();
-            MessageBox.Show("Pokemon removed from team.", "Pokemon Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch
         {
+            Debug.WriteLine("Invalid index selected for removal.", "Removal Error");
             return;
         }
     }
@@ -156,5 +138,22 @@ public class Team
         {
             return;
         }
+    }
+
+    // Basic testing of Team class functions
+    private void TestingTeamFunctions()
+    {
+        Pokemon testPokemon = new Pokemon("Pikachu", "Electric", 50, 150, 100, 80, 90, 70, 120);
+        string pokemonInfo = testPokemon.FormattedPokemon();
+        Debug.Assert(pokemonInfo == "Pikachu,Electric,50,150,100,80,90,70,120", "FormattedPokemon method failed.");
+
+        this.AddPokemon(testPokemon);
+        Debug.Assert(this.pokemonTeam[0] == testPokemon, "AddPokemon method failed.");
+
+        List<Pokemon> testGetTeam = this.GetTeam();
+        Debug.Assert(testGetTeam.Count == 1, "GetTeam method failed.");
+
+        this.RemovePokemon(0);
+        Debug.Assert(this.pokemonTeam.Count == 0, "RemovePokemon method failed.");
     }
 }

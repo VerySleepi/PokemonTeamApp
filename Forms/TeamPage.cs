@@ -13,13 +13,10 @@ namespace PokemonTeamApp
         public TeamPage()
         {
             InitializeComponent();
-        }
-
-        private void TeamPage_Load(object sender, EventArgs e)
-        {
             pokeball = new Bitmap("Pokeball.png");
             emptyPokeball = new Bitmap("EmptyPokeball.png");
         }
+
 
         // Event Handlers
         private void PokePanel_Click(object sender, EventArgs e)
@@ -41,6 +38,7 @@ namespace PokemonTeamApp
 
         private void btnRemovePokemon_Click(object sender, EventArgs e)
         {
+            // Testing example using MessageBox
             if (team.GetTeam().Count == 0)
             {
                 MessageBox.Show("Your team is empty! There are no Pokemon to remove.", "No Pokemon to Remove", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -48,13 +46,46 @@ namespace PokemonTeamApp
             }
             RemoveFromTeam removeFromTeam = new RemoveFromTeam(team);
             removeFromTeam.ShowDialog();
+
+            this.Activate();
+            this.Show();
+        }
+        private void btnAddTeam_Click(object sender, EventArgs e)
+        {
+            if (team.GetTeam().Count == 6)
+            {
+                MessageBox.Show("Your team is full! Remove a Pokemon before trying again.", "Team Full!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            this.Hide();
+            PokemonPage pokemonPage = new PokemonPage(team);
+            pokemonPage.ShowDialog();
             this.Activate();
             this.Show();
         }
 
         private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            team.SaveTeam();
+            try
+            {
+                team.SaveTeam("Team");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.ToString()} occurred while saving the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void TeamPage_Activated(object sender, EventArgs e)
+        {
+            flpPokemonTeam.Controls.Clear();
+            pokemonPanels.Clear();
+            CreatePanels();
+            foreach (PokePanel panel in pokemonPanels)
+            {
+                flpPokemonTeam.Controls.Add(panel);
+            }
         }
 
         // Member functions
@@ -76,24 +107,11 @@ namespace PokemonTeamApp
             }
         }
 
-        private void btnAddTeam_Click(object sender, EventArgs e)
+        private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            PokemonPage pokemonPage = new PokemonPage(team);
-            pokemonPage.ShowDialog();
-            this.Activate();
-            this.Show();
+            this.Close();
         }
 
-        private void TeamPage_Activated(object sender, EventArgs e)
-        {
-            flpPokemonTeam.Controls.Clear();
-            pokemonPanels.Clear();
-            CreatePanels();
-            foreach (PokePanel panel in pokemonPanels)
-            {
-                flpPokemonTeam.Controls.Add(panel);
-            }
-        }
+
     }
 }

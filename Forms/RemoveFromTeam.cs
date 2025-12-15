@@ -39,6 +39,9 @@ namespace PokemonTeamApp.Forms
                 return;
             }
             team.RemovePokemon(lbTeamList.SelectedIndex);
+            MessageBox.Show("Pokemon removed from team.", "Pokemon Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            team.SaveTeam("Team");
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

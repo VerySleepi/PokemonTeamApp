@@ -2,13 +2,16 @@
 {
     public class Pokedex
     {
+        // Data
         private List<string[]> pokedex = new List<string[]>();
 
+        // Constructor
         public Pokedex()
         {
             pokedex = GetPokedex();
         }
 
+        // Member Functions
         private List<string[]> GetPokedex()
         {
             List<string[]> pokedex = new List<string[]>();

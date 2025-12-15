@@ -74,6 +74,7 @@
             Controls.Add(btnDelete);
             Controls.Add(lbTeamList);
             Name = "RemoveFromTeam";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "RemoveFromTeam";
             ResumeLayout(false);
         }

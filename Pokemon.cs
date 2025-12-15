@@ -16,7 +16,10 @@
 
     public string Name
     {
+        // get keyword defines accessor method that returns the name value
         get { return name; }
+        // set accessor same as method that returns void and takes implicit parameter 'value'
+        // When value is assigned to Name property, this set accessor is invoked
         set { name = value; }
     }
     public string Type1
@@ -101,7 +104,6 @@
     }
 
     // Member functions
-    // TODO: Add functions setting individual values
     public string FormattedPokemon()
     {
         if (Type2 != "")

@@ -31,6 +31,7 @@
             flpPokemonTeam = new FlowLayoutPanel();
             btnAddTeam = new Button();
             btnRemoveTeam = new Button();
+            btnMainMenu = new Button();
             SuspendLayout();
             // 
             // flpPokemonTeam
@@ -44,17 +45,17 @@
             // 
             // btnAddTeam
             // 
-            btnAddTeam.Location = new Point(45, 546);
+            btnAddTeam.Location = new Point(43, 546);
             btnAddTeam.Name = "btnAddTeam";
             btnAddTeam.Size = new Size(142, 31);
-            btnAddTeam.TabIndex = 1;
+            btnAddTeam.TabIndex = 0;
             btnAddTeam.Text = "Add Pokemon";
             btnAddTeam.UseVisualStyleBackColor = true;
             btnAddTeam.Click += btnAddTeam_Click;
             // 
             // btnRemoveTeam
             // 
-            btnRemoveTeam.Location = new Point(224, 546);
+            btnRemoveTeam.Location = new Point(222, 546);
             btnRemoveTeam.Name = "btnRemoveTeam";
             btnRemoveTeam.Size = new Size(142, 31);
             btnRemoveTeam.TabIndex = 1;
@@ -62,12 +63,23 @@
             btnRemoveTeam.UseVisualStyleBackColor = true;
             btnRemoveTeam.Click += btnRemovePokemon_Click;
             // 
+            // btnMainMenu
+            // 
+            btnMainMenu.Location = new Point(401, 546);
+            btnMainMenu.Name = "btnMainMenu";
+            btnMainMenu.Size = new Size(142, 31);
+            btnMainMenu.TabIndex = 2;
+            btnMainMenu.Text = "Main Menu";
+            btnMainMenu.UseVisualStyleBackColor = true;
+            btnMainMenu.Click += btnRemovePokemon_Click;
+            // 
             // TeamPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(587, 599);
+            Controls.Add(btnMainMenu);
             Controls.Add(btnRemoveTeam);
             Controls.Add(btnAddTeam);
             Controls.Add(flpPokemonTeam);
@@ -87,5 +99,6 @@
         private FlowLayoutPanel flpPokemonTeam;
         private Button btnAddTeam;
         private Button btnRemoveTeam;
+        private Button btnMainMenu;
     }
 }

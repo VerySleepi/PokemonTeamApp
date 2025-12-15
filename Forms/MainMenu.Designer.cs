@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             btnTeam = new Button();
-            btnBattle = new Button();
             SuspendLayout();
             // 
             // btnTeam
             // 
-            btnTeam.Location = new Point(133, 257);
+            btnTeam.Location = new Point(295, 228);
             btnTeam.Name = "btnTeam";
             btnTeam.Size = new Size(180, 40);
             btnTeam.TabIndex = 0;
@@ -42,21 +41,11 @@
             btnTeam.UseVisualStyleBackColor = true;
             btnTeam.Click += btnTeam_Click;
             // 
-            // btnBattle
-            // 
-            btnBattle.Location = new Point(458, 257);
-            btnBattle.Name = "btnBattle";
-            btnBattle.Size = new Size(180, 40);
-            btnBattle.TabIndex = 0;
-            btnBattle.Text = "Battle";
-            btnBattle.UseVisualStyleBackColor = true;
-            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(771, 497);
-            Controls.Add(btnBattle);
             Controls.Add(btnTeam);
             Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;
@@ -67,6 +56,5 @@
         #endregion
 
         private Button btnTeam;
-        private Button btnBattle;
     }
 }

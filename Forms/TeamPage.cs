@@ -17,8 +17,8 @@ namespace PokemonTeamApp
 
         private void TeamPage_Load(object sender, EventArgs e)
         {
-            pokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\Pokeball.png");
-            emptyPokeball = new Bitmap("C:\\Users\\georg\\source\\repos\\VerySleepi\\PokemonTeamApp\\Resources\\EmptyPokeball.png");
+            pokeball = new Bitmap("Pokeball.png");
+            emptyPokeball = new Bitmap("EmptyPokeball.png");
         }
 
         // Event Handlers

@@ -1,8 +1,11 @@
+using PokemonTeamApp.Forms;
+
 namespace PokemonTeamApp
 {
     public partial class MainMenu : Form
     {
-        // Data
+        // Possible to add multiple save slots for multiple teams in the future
+        // however for now, just one team per user
 
         // Constructor
         public MainMenu()
@@ -20,8 +23,6 @@ namespace PokemonTeamApp
 
             Show();
         }
-
-        // Member Functions
 
     }
 }

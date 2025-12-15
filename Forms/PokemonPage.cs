@@ -49,36 +49,65 @@ namespace PokemonTeamApp.Forms
         // Event Handlers
         private void NudLvl_ValueChanged(object sender, EventArgs e)
         {
-            lblLvlValue.Text = nudLvl.Value.ToString();
             Random rnd = new Random();
-            int adjustedLevels = Convert.ToInt32(nudLvl.Value) - Convert.ToInt32(lblLvlValue.Text);
-            if (adjustedLevels < 0)
+            // Preventing lblLvlValue from being empty 
+            if (lblLvlValue.Text == "")
             {
                 lblLvlValue.Text = nudLvl.Value.ToString();
-                return;
             }
 
-            // Retrieving the numeric updown controls from the groupbox and adjusting their values based on the added levels
-            foreach (NumericUpDown stat in gBStats.Controls.OfType<NumericUpDown>())
+            // Retrieving the numeric updown controls from the groupbox and adjusting their values based on the adjusted levels
+            if (nudLvl.Value > Convert.ToInt32(lblLvlValue.Text))
             {
-                int AddToStat = rnd.Next(1, 5);
-                if (stat.TabIndex >= 2 && stat.TabIndex <= 7)
+                foreach (NumericUpDown stat in gBStats.Controls.OfType<NumericUpDown>())
                 {
-                    int statAddjustment = Convert.ToInt32(stat.Value) + AddToStat;
-                    if (statAddjustment > stat.Maximum)
+                    // Would be possible to create an algorithm that calculates stat increases based on base stats, IVs, EVs, and level, however
+                    // for the sake of simplicity and time, using random values here
+                    int AddToStat = rnd.Next(1, 5);
+                    if (stat.TabIndex >= 2 && stat.TabIndex <= 7)
                     {
-                        stat.Value = stat.Maximum;
-                    }
-                    else if (statAddjustment < stat.Minimum)
-                    {
-                        stat.Value = stat.Minimum;
-                    }
-                    else
-                    {
-                        stat.Value = statAddjustment;
+                        int statAddjustment = Convert.ToInt32(stat.Value) + AddToStat;
+                        // Ensuring that the stat does not exceed the maximum value of the NumericUpDown control
+                        if (statAddjustment > stat.Maximum)
+                        {
+                            stat.Value = stat.Maximum;
+                        }
+                        else
+                        {
+                            stat.Value = statAddjustment;
+                        }
                     }
                 }
+                lblLvlValue.Text = nudLvl.Value.ToString();
             }
+            else if (nudLvl.Value < Convert.ToInt32(lblLvlValue.Text))
+            {
+                foreach (NumericUpDown stat in gBStats.Controls.OfType<NumericUpDown>())
+                {
+                    // Instead of using random here, could consider adding a 2D array to hold the stat gain per level for the pokemon
+                    // species and use that to subtract the appropriate amount
+                    int SubtractStat = rnd.Next(1, 5);
+                    if (stat.TabIndex >= 2 && stat.TabIndex <= 7)
+                    {
+                        int statAddjustment = Convert.ToInt32(stat.Value) - SubtractStat;
+                        if (statAddjustment < stat.Minimum)
+                        {
+                            stat.Value = stat.Minimum;
+                        }
+                        else
+                        {
+                            stat.Value = statAddjustment;
+                        }
+                    }
+                }
+                lblLvlValue.Text = nudLvl.Value.ToString();
+            }
+            else
+            {
+                return;
+            }
+           
+
 
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -175,8 +204,8 @@ namespace PokemonTeamApp.Forms
         {
             lblName.Text = pokemon.Name;
             lblPrimaryType.Text = pokemon.Type1;
-            nudLvl.Value = pokemon.Level;
             lblLvlValue.Text = pokemon.Level.ToString();
+            nudLvl.Value = pokemon.Level;
             nudHP.Value = pokemon.HP;
             nudAtk.Value = pokemon.Attack;
             nudDef.Value = pokemon.Defense;

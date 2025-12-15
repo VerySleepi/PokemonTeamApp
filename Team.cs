@@ -6,7 +6,6 @@ public class Team
     // Data
     private List<Pokemon> pokemonTeam = new List<Pokemon>();
 
-    // TODO: Create GetPokemon(int index) member function
 
     // Constructor
     public Team()

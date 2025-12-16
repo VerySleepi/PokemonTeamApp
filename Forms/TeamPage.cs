@@ -5,6 +5,9 @@ namespace PokemonTeamApp
     public partial class TeamPage : Form
     {
         // Data
+        // Declaring team here instead of in each form to maintain team consistency across forms
+        // If multple teams are implemented in the future, this would be added to another class to manage multiple teams
+        // and passed as a parameter to each form where needed
         Team team = new Team();
         List<PokePanel> pokemonPanels = new List<PokePanel>();
         Bitmap pokeball, emptyPokeball;
@@ -21,7 +24,9 @@ namespace PokemonTeamApp
         // Event Handlers
         private void PokePanel_Click(object sender, EventArgs e)
         {
+            // Cast sender type to PokePanel to identify which panel was clicked
             PokePanel panel = (PokePanel)sender;
+            // Accessing the control collection of the FlowLayoutPanel to get index of clicked panel
             int currentPanel = flpPokemonTeam.Controls.IndexOf(panel);
             if (currentPanel != -1 && team.GetPokemon(currentPanel) != null)
             {
@@ -50,8 +55,10 @@ namespace PokemonTeamApp
             this.Activate();
             this.Show();
         }
+
         private void btnAddTeam_Click(object sender, EventArgs e)
         {
+            // Example of using Messagebox to provide feedback to user as well as checking team size before adding
             if (team.GetTeam().Count == 6)
             {
                 MessageBox.Show("Your team is full! Remove a Pokemon before trying again.", "Team Full!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,7 +83,8 @@ namespace PokemonTeamApp
             }
         }
 
-
+        // Activated event to refresh the team display when returning to this form
+        // On Load would only run once when the form is first opened, which would not update the display after Pokemon are added/removed
         private void TeamPage_Activated(object sender, EventArgs e)
         {
             flpPokemonTeam.Controls.Clear();

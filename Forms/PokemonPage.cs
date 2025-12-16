@@ -60,6 +60,7 @@ namespace PokemonTeamApp.Forms
             // Retrieving the numeric updown controls from the groupbox and adjusting their values based on the adjusted levels
             if (nudLvl.Value > Convert.ToInt32(lblLvlValue.Text))
             {
+                // Looping through the numeric updown controls in the stats groupbox to adjust their values
                 foreach (NumericUpDown stat in gBStats.Controls.OfType<NumericUpDown>())
                 {
                     // Would be possible to create an algorithm that calculates stat increases based on base stats, IVs, EVs, and level, however
@@ -203,6 +204,7 @@ namespace PokemonTeamApp.Forms
         }
 
         // Member Functions
+        // Loading Pokemon data into the form controls, 
         public void LoadPokemonData()
         {
             lblName.Text = pokemon.Name;

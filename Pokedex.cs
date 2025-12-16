@@ -3,6 +3,7 @@
     public class Pokedex
     {
         // Data
+        // Use of a list of string arrays to hold the immutable base data for each Pokemon in the Pokedex
         private List<string[]> pokedex = new List<string[]>();
 
         // Constructor
@@ -12,6 +13,11 @@
         }
 
         // Member Functions
+
+        /// <summary>
+        /// Will be used to check validity of Pokemon names when adding to team, as well as providing type information
+        /// </summary>
+        /// <returns> Pokedex List - See pokedex in data </returns>
         private List<string[]> GetPokedex()
         {
             List<string[]> pokedex = new List<string[]>();
@@ -26,6 +32,7 @@
             }
             else
             {
+                // As this process runs on initialization of the Pokedex class, using MessageBox to inform user of missing file
                 MessageBox.Show("Pokedex file not found.");
                 File.Create("Pokedex.txt");
             }
@@ -62,6 +69,10 @@
             return foundPokemon;
         }
 
+        /// <summary>
+        /// Retrieves a list of all Pokémon names in the Pokédex, to be used when selecting a Pokemon to add to the team.
+        /// </summary>
+        /// <returns> Local List of all Pokemon names </returns>
         public List<string> GetAllPokemonNames()
         {
             List<string> pokemonNames = new List<string>();

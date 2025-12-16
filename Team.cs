@@ -15,6 +15,7 @@ public class Team
     }
 
     // Methods
+    // Saving team to file passed in as fileName
     public void SaveTeam(string fileName)
     {
         try
@@ -34,6 +35,7 @@ public class Team
         }
     }
 
+    // Getting the current team, loading from file if not already loaded
     public List<Pokemon> GetTeam()
     {
         if (pokemonTeam.Count == 0)
@@ -43,6 +45,7 @@ public class Team
         return pokemonTeam;
     }
 
+    // Loading team from file, returns list of Pokemon. For this implementation, file name is hardcoded as "Team".
     public List<Pokemon> LoadTeam()
     {
         if (File.Exists("Team"))
@@ -91,14 +94,19 @@ public class Team
 
     public void AddPokemon(Pokemon newPokemon)
     {
-        Debug.Assert(newPokemon != null, "No Pokemon selected to add.");
-        pokemonTeam.Add(newPokemon);
-
+        try
+        {
+            pokemonTeam.Add(newPokemon);
+        }
+        catch
+        {
+            Debug.WriteLine("Failed to add new Pokemon to team.", "Addition Error");
+            return;
+        }
     }
 
     public void RemovePokemon(int choiceIndex)
     {
-
         try
         {
             pokemonTeam.RemoveAt(choiceIndex);
@@ -140,7 +148,7 @@ public class Team
         }
     }
 
-    // Basic testing of Team class functions
+    // Basic testing of main Team and Pokemon class functions
     private void TestingTeamFunctions()
     {
         Pokemon testPokemon = new Pokemon("Pikachu", "Electric", 50, 150, 100, 80, 90, 70, 120);

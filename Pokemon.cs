@@ -1,4 +1,7 @@
-﻿public class Pokemon
+﻿
+// Pokemon class created to represent an individual Pokemon and its attributes
+// which can be added to a List Collection in the Team class.
+public class Pokemon
 {
 
     // Data
@@ -104,6 +107,7 @@
     }
 
     // Member functions
+    // Formats the Pokemon data into a comma-separated string for saving to file
     public string FormattedPokemon()
     {
         if (Type2 != "")
@@ -116,6 +120,7 @@
         }
     }
 
+    // Provides a brief overview of the Pokemon's stats
     public string StatOverview()
     {
         return $"{Name}, Lvl:{Level},\n{HP}/{HP}";

@@ -19,6 +19,8 @@ namespace PokemonTeamApp.Forms
         private bool savedChanges = true;
 
         // Constructor
+
+        // Constructor for setting up the Pokemon Page for adding a new Pokemon
         public PokemonPage(Team team)
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace PokemonTeamApp.Forms
             this.team = team;
         }
 
+        // Constructor for setting up the Pokemon Page for editing an existing Pokemon
         public PokemonPage(Pokemon pokemon, Team team)
         {
             InitializeComponent();
@@ -47,6 +50,7 @@ namespace PokemonTeamApp.Forms
         }
 
         // Event Handlers
+
         // Raising the value changed event to adjust stats based on level changes
         private void NudLvl_ValueChanged(object sender, EventArgs e)
         {
@@ -108,9 +112,6 @@ namespace PokemonTeamApp.Forms
             {
                 return;
             }
-           
-
-
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -130,6 +131,7 @@ namespace PokemonTeamApp.Forms
             this.Close();
         }
 
+        // Event Handler for Add Button
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cbPkmnName.SelectedItem == null)
@@ -152,11 +154,14 @@ namespace PokemonTeamApp.Forms
 
             SavePokemonData();
             team.AddPokemon(pokemon);
+
+            // Confirmation message box after adding Pokemon to team
             MessageBox.Show("Pokemon added to team.", "Pokemon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             team.SaveTeam("Team");
             this.Close();
         }
 
+        // Event Handler for Form Closing to check for unsaved changes
         private void PokemonPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             string message = "You have unsaved changes. Are you sure you want to exit?";
@@ -172,22 +177,29 @@ namespace PokemonTeamApp.Forms
             }
         }
 
+        // If any of the stat NumericUpDown values are changed, mark savedChanges as false
         private void Stat_ValueChanged(object sender, EventArgs e)
         {
             savedChanges = false;
         }
 
+        // Loading selected Pokemon from the ComboBox into the form controls
         private void cbPkmnName_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> pokedexEntry = pokedex.SearchPokedex(cbPkmnName.SelectedItem.ToString());
+
+            // If the Pokemon is not found in the Pokedex, show a message box and reset the ComboBox selection
             if (pokedexEntry.Count == 0)
             {
                 MessageBox.Show("Pokémon not found in the Pokédex.");
                 cbPkmnName.SelectedIndex = -1;
                 return;
             }
+
+            // Loading the Pokemon data into the form controls
             lblName.Text = pokedexEntry[0];
             lblPrimaryType.Text = pokedexEntry[1];
+            // Checking if there is a secondary type for the Pokemon
             if (pokedexEntry.Count > 2)
             {
                 lblType2.Visible = true;
@@ -204,7 +216,8 @@ namespace PokemonTeamApp.Forms
         }
 
         // Member Functions
-        // Loading Pokemon data into the form controls, 
+
+        // Loading Pokemon data into the form controls,
         public void LoadPokemonData()
         {
             lblName.Text = pokemon.Name;
@@ -231,6 +244,7 @@ namespace PokemonTeamApp.Forms
             savedChanges = true;
         }
 
+        // Saving Pokemon data from the form controls into the Pokemon object
         public void SavePokemonData()
         {
             pokemon.Name = lblName.Text;

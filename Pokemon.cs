@@ -30,13 +30,11 @@ public class Pokemon
         get { return type1; }
         set { type1 = value; }
     }
-
     public string Type2
     {
         get { return type2; }
         set { type2 = value; }
     }
-
     public int Level
     {
         get { return level; }
@@ -73,7 +71,7 @@ public class Pokemon
         set { spd = value; }
     }
 
-    // Member Constructors
+    // Constructors
     public Pokemon(string species, string type1, string type2, int lvl, int hp, int atk, int def, int spak, int spdf, int spd)
     {
         Name = species;
@@ -126,6 +124,7 @@ public class Pokemon
         return $"{Name}, Lvl:{Level},\n{HP}/{HP}";
     }
 
+    // Overrides ToString() method to return the stat overview - useful for displaying in Console, no longer used
     public override string ToString()
     {
         return StatOverview();

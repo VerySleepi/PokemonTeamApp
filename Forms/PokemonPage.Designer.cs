@@ -91,7 +91,7 @@
             // 
             nudSpd.Font = new Font("Segoe UI", 11F);
             nudSpd.Location = new Point(156, 350);
-            nudSpd.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudSpd.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudSpd.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpd.Name = "nudSpd";
             nudSpd.Size = new Size(58, 27);
@@ -103,7 +103,7 @@
             // 
             nudSpDef.Font = new Font("Segoe UI", 11F);
             nudSpDef.Location = new Point(156, 296);
-            nudSpDef.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudSpDef.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudSpDef.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpDef.Name = "nudSpDef";
             nudSpDef.Size = new Size(58, 27);
@@ -115,7 +115,7 @@
             // 
             nudSpAtk.Font = new Font("Segoe UI", 11F);
             nudSpAtk.Location = new Point(156, 242);
-            nudSpAtk.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudSpAtk.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudSpAtk.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudSpAtk.Name = "nudSpAtk";
             nudSpAtk.Size = new Size(58, 27);
@@ -127,7 +127,7 @@
             // 
             nudDef.Font = new Font("Segoe UI", 11F);
             nudDef.Location = new Point(156, 188);
-            nudDef.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudDef.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudDef.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudDef.Name = "nudDef";
             nudDef.Size = new Size(58, 27);
@@ -139,7 +139,7 @@
             // 
             nudAtk.Font = new Font("Segoe UI", 11F);
             nudAtk.Location = new Point(156, 134);
-            nudAtk.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudAtk.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudAtk.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudAtk.Name = "nudAtk";
             nudAtk.Size = new Size(58, 27);
@@ -162,7 +162,7 @@
             // 
             nudHP.Font = new Font("Segoe UI", 11F);
             nudHP.Location = new Point(156, 80);
-            nudHP.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudHP.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             nudHP.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudHP.Name = "nudHP";
             nudHP.Size = new Size(58, 27);

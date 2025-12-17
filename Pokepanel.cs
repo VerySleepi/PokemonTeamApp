@@ -13,6 +13,7 @@ namespace PokemonTeamApp
 {
     public partial class PokePanel : UserControl
     {
+        // Constructor if Pokemon data is provided
         public PokePanel(Image img, Pokemon p)
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace PokemonTeamApp
             psbHealth.Value = p.HP;
         }
 
+        // Constructor if no Pokemon data is provided
         public PokePanel(Image img)
         {
             InitializeComponent();

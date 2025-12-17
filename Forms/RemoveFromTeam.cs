@@ -23,6 +23,7 @@ namespace PokemonTeamApp.Forms
             }
         }
 
+        // Event Handler for Delete Button
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lbTeamList.SelectedIndex == -1)
@@ -44,6 +45,7 @@ namespace PokemonTeamApp.Forms
             this.Close();
         }
 
+        /// Event Handler for Cancel Button
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

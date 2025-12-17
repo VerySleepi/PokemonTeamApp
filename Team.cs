@@ -6,7 +6,6 @@ public class Team
     // Data
     private List<Pokemon> pokemonTeam = new List<Pokemon>();
 
-
     // Constructor
     public Team()
     {
@@ -15,6 +14,7 @@ public class Team
     }
 
     // Methods
+
     // Saving team to file passed in as fileName
     public void SaveTeam(string fileName)
     {
@@ -80,6 +80,7 @@ public class Team
         return pokemonTeam;
     }
 
+    // Getting a specific Pokemon from the team by index
     public Pokemon GetPokemon(int index)
     {
         if (index > pokemonTeam.Count - 1 || index == -1)
@@ -92,6 +93,7 @@ public class Team
         }
     }
 
+    // Adding a new Pokemon to the team
     public void AddPokemon(Pokemon newPokemon)
     {
         try
@@ -105,6 +107,7 @@ public class Team
         }
     }
 
+    // Removing a Pokemon from the team by index
     public void RemovePokemon(int choiceIndex)
     {
         try
@@ -118,6 +121,7 @@ public class Team
         }
     }
 
+    // Separate method to load Pokemon to team to reduce code duplication
     private void LoadPokemonToTeam(int startIndex, int numberOfValues, List<string> values, List<int> intValues)
     {
         for (int i = startIndex; i < numberOfValues; i++)

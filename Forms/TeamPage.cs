@@ -22,6 +22,8 @@ namespace PokemonTeamApp
 
 
         // Event Handlers
+
+        // Event handler for clicking on a PokePanel to open the corresponding PokemonPage
         private void PokePanel_Click(object sender, EventArgs e)
         {
             // Cast sender type to PokePanel to identify which panel was clicked
@@ -41,6 +43,7 @@ namespace PokemonTeamApp
             }
         }
 
+        // Add and Remove Pokemon button event handlers
         private void btnRemovePokemon_Click(object sender, EventArgs e)
         {
             // Testing example using MessageBox
@@ -71,6 +74,7 @@ namespace PokemonTeamApp
             this.Show();
         }
 
+        // Form Closing event to save the team data to the file
         private void TeamPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -96,7 +100,15 @@ namespace PokemonTeamApp
             }
         }
 
+        // Back to Main Menu button event handler
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         // Member functions
+
+        // Function to create PokePanels for each filled team slot
         private void CreatePanels()
         {
             for (int i = 0; i < 6; i++)
@@ -115,10 +127,6 @@ namespace PokemonTeamApp
             }
         }
 
-        private void btnMainMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
 
     }

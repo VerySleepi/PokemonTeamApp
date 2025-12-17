@@ -14,10 +14,8 @@
 
         // Member Functions
 
-        /// <summary>
-        /// Will be used to check validity of Pokemon names when adding to team, as well as providing type information
-        /// </summary>
-        /// <returns> Pokedex List - See pokedex in data </returns>
+
+        // Will be used to check validity of Pokemon names when adding to team, as well as providing type information
         private List<string[]> GetPokedex()
         {
             List<string[]> pokedex = new List<string[]>();
@@ -40,6 +38,7 @@
             return pokedex;
         }
 
+        // Searches the Pokedex list for a given Pokemon name, returning name and type(s) if found.
         public List<string> SearchPokedex(string name)
         {
             bool found = false;
@@ -69,10 +68,7 @@
             return foundPokemon;
         }
 
-        /// <summary>
-        /// Retrieves a list of all Pokémon names in the Pokédex, to be used when selecting a Pokemon to add to the team.
-        /// </summary>
-        /// <returns> Local List of all Pokemon names </returns>
+        // Retrieves a list of all Pokémon names in the Pokédex, to be used when selecting a Pokemon to add to the team.
         public List<string> GetAllPokemonNames()
         {
             List<string> pokemonNames = new List<string>();
